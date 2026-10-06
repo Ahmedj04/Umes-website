@@ -7,463 +7,513 @@
 <meta name="description" content="UMES builds websites, runs digital marketing, and designs high-level network architecture — engineered with the same precision, from Kashmir to partners across the United States and the United Kingdom.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --plum:#2B1220;
-    --wine:#48192A;
-    --sienna:#6B2B1D;
-    --ink:#FBEFE4;
-    --ink-dim:#E4CFC2;
-    --ink-mute:#C7AA9C;
-    --leaf-red:#C1432A;
-    --leaf-gold:#E0912F;
-    --leaf-rust:#8C2E1E;
-    --glass:rgba(255,255,255,0.055);
-    --glass-strong:rgba(255,255,255,0.1);
-    --border:rgba(255,255,255,0.14);
-    --radius:16px;
+    --bg:#FFFFFF;
+    --bg-soft:#F5F5F2;
+    --ink:#0B0B0F;
+    --ink-2:#44444D;
+    --ink-3:#7A7A85;
+    --line:#E4E4DE;
+    --accent:#FF5A1F;
+    --accent-dark:#E24A12;
+    --dark:#0B0B0F;
+    --dark-2:#16161C;
+    --on-dark:#F4F4F1;
+    --on-dark-2:#A8A8B3;
+    --radius:20px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    margin:0;color:var(--ink);
-    font-family:'Manrope', sans-serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    background:
-      radial-gradient(1200px 700px at 20% -10%, rgba(224,145,47,0.16), transparent 60%),
-      radial-gradient(1000px 800px at 90% 10%, rgba(193,67,42,0.14), transparent 55%),
-      linear-gradient(180deg, var(--plum) 0%, var(--wine) 45%, var(--sienna) 100%);
-    background-attachment:fixed;
-    overflow-x:hidden;
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
-  h1,h2,h3{font-family:'Cormorant Garamond', serif;font-weight:500;margin:0;letter-spacing:0.002em;}
+  h1,h2,h3,h4{margin:0;font-weight:700;letter-spacing:-0.03em;line-height:1.05;}
   p{margin:0;}
   a{color:inherit;text-decoration:none;}
   button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;}
-  img,video{max-width:100%;display:block;}
-  .wrap{max-width:1140px;margin:0 auto;padding:0 32px;position:relative;z-index:2;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px;}
   @media(max-width:640px){.wrap{padding:0 20px;}}
-  section{scroll-margin-top:96px;}
-
-  /* ---------- falling leaves layer ---------- */
-  #leafLayer{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
-  .leaf{
-    position:absolute;top:-10vh;left:var(--x);
-    font-size:var(--size);line-height:1;
-    animation:fall var(--dur) linear var(--delay) infinite;
-    opacity:0.55;
-    filter:drop-shadow(0 3px 6px rgba(0,0,0,0.3));
-    will-change:transform;
-  }
-  @keyframes fall{
-    0%{transform:translate(0,0) rotate(0deg);}
-    25%{transform:translate(28px,28vh) rotate(90deg);}
-    50%{transform:translate(-22px,55vh) rotate(180deg);}
-    75%{transform:translate(30px,82vh) rotate(270deg);}
-    100%{transform:translate(-10px,112vh) rotate(360deg);}
-  }
-  @media (prefers-reduced-motion: reduce){
-    .leaf{animation:none;opacity:0.3;top:20vh;}
-  }
-
-  /* ---------- glass utility ---------- */
-  .glass{
-    background:var(--glass);
-    border:1px solid var(--border);
-    backdrop-filter:blur(18px) saturate(150%);
-    -webkit-backdrop-filter:blur(18px) saturate(150%);
-    border-radius:var(--radius);
-  }
+  section{scroll-margin-top:80px;}
+  .accent{color:var(--accent);}
 
   /* ---------- buttons ---------- */
   .btn{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:13px 24px;border-radius:10px;font-size:0.92rem;font-weight:600;
-    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 28px;border-radius:100px;font-size:0.95rem;font-weight:600;
+    transition:transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
   }
-  .btn-primary{
-    background:linear-gradient(135deg, var(--leaf-gold), var(--leaf-red));
-    color:#211009;box-shadow:0 8px 24px -8px rgba(224,145,47,0.5);
-  }
-  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 28px -8px rgba(224,145,47,0.65);}
-  .btn-ghost{
-    border:1px solid var(--border);color:var(--ink);background:var(--glass-strong);
-  }
-  .btn-ghost:hover{background:rgba(255,255,255,0.15);}
-  .btn svg{width:16px;height:16px;}
+  .btn svg{width:16px;height:16px;transition:transform .2s;}
+  .btn:hover svg{transform:translateX(3px);}
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-primary:hover{background:var(--accent-dark);}
+  .btn-dark{background:var(--ink);color:#fff;}
+  .btn-dark:hover{background:#25252d;}
+  .btn-outline{border:1.5px solid var(--ink);color:var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:#fff;}
+  .btn-sm{padding:10px 20px;font-size:0.88rem;}
 
   /* ---------- Header ---------- */
-  header{position:sticky;top:0;z-index:40;padding:16px;}
-  header .inner{
-    display:flex;align-items:center;justify-content:space-between;width:100%;
-    max-width:1140px;margin:0 auto;padding:12px 18px 12px 22px;border-radius:100px;
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,0.88);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
   }
-  .brand{display:flex;align-items:center;gap:9px;}
-  .brand .mark{font-size:1.2rem;line-height:1;}
-  .brand span{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;letter-spacing:0.01em;}
-  nav.primary-nav{display:flex;align-items:center;gap:30px;}
-  nav.primary-nav a{font-size:0.88rem;color:var(--ink-dim);transition:color .2s;}
+  header .inner{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.35rem;letter-spacing:-0.04em;}
+  .brand .mark{
+    width:32px;height:32px;border-radius:9px;background:var(--ink);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:800;
+  }
+  .brand .mark i{font-style:normal;color:var(--accent);}
+  nav.primary-nav{display:flex;align-items:center;gap:34px;}
+  nav.primary-nav a{font-size:0.92rem;font-weight:500;color:var(--ink-2);transition:color .2s;}
   nav.primary-nav a:hover{color:var(--ink);}
   .nav-actions{display:flex;align-items:center;gap:14px;}
   .menu-btn{display:none;padding:8px;}
-  .menu-btn svg{width:20px;height:20px;}
+  .menu-btn svg{width:24px;height:24px;}
   @media(max-width:860px){
     nav.primary-nav{display:none;}
     .menu-btn{display:inline-flex;}
+    .nav-actions .btn{display:none;}
   }
-  #mobileNav{
-    display:none;max-width:1140px;margin:8px auto 0;padding:10px 14px;
-  }
+  #mobileNav{display:none;border-top:1px solid var(--line);background:#fff;padding:8px 20px 16px;}
   #mobileNav.open{display:block;}
-  #mobileNav a{display:block;padding:12px 10px;font-size:0.96rem;color:var(--ink-dim);border-bottom:1px solid var(--border);}
-  #mobileNav a:last-child{border-bottom:none;}
+  #mobileNav a{display:block;padding:14px 0;font-weight:500;border-bottom:1px solid var(--line);}
+  #mobileNav a.cta{border:none;color:var(--accent);font-weight:700;}
 
   /* ---------- Hero ---------- */
-  .hero{position:relative;padding:72px 0 96px;}
-  .hero-panel{padding:60px;max-width:720px;}
-  @media(max-width:640px){.hero-panel{padding:32px 24px;}}
-  .kicker{
-    display:inline-flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--leaf-gold);
-    margin-bottom:22px;font-weight:600;letter-spacing:0.01em;
+  .hero{padding:110px 0 90px;}
+  @media(max-width:640px){.hero{padding:64px 0 60px;}}
+  .pill{
+    display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:100px;
+    background:var(--bg-soft);border:1px solid var(--line);
+    font-size:0.82rem;font-weight:600;color:var(--ink-2);margin-bottom:30px;
   }
-  .kicker .mark{font-size:0.95rem;}
-  .hero h1{font-size:clamp(2.15rem,4.6vw,3.5rem);line-height:1.1;max-width:16ch;}
-  .hero p.lead{margin-top:22px;color:var(--ink-dim);font-size:1.12rem;max-width:46ch;}
-  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;}
-  .trust-row{
-    display:flex;gap:28px;flex-wrap:wrap;margin-top:44px;padding-top:28px;
-    border-top:1px solid var(--border);
-  }
-  .trust-item{display:flex;align-items:center;gap:10px;color:var(--ink-mute);font-size:0.86rem;}
-  .trust-item svg{width:17px;height:17px;color:var(--leaf-gold);flex-shrink:0;}
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);}
+  .hero h1{font-size:clamp(2.9rem,8vw,6.6rem);line-height:0.98;letter-spacing:-0.05em;max-width:14ch;}
+  .hero p.lead{margin-top:32px;font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--ink-2);max-width:56ch;}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:40px;}
 
-  /* ---------- section heads ---------- */
+  .quick{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:80px;
+  }
+  @media(max-width:860px){.quick{grid-template-columns:1fr;margin-top:56px;}}
+  .quick a{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:22px 26px;border:1.5px solid var(--line);border-radius:var(--radius);
+    font-weight:600;font-size:1.02rem;transition:border-color .2s, background .2s, transform .2s;
+  }
+  .quick a:hover{border-color:var(--ink);transform:translateY(-3px);}
+  .quick a span small{display:block;color:var(--ink-3);font-weight:500;font-size:0.82rem;margin-bottom:2px;}
+  .quick a svg{width:22px;height:22px;flex-shrink:0;color:var(--accent);}
+
+  /* ---------- Marquee ---------- */
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-soft);overflow:hidden;padding:26px 0;}
+  .marquee-track{display:flex;gap:56px;width:max-content;animation:scroll 32s linear infinite;}
+  .marquee-track span{
+    font-size:1.5rem;font-weight:700;letter-spacing:-0.03em;color:var(--ink-3);white-space:nowrap;
+    display:flex;align-items:center;gap:56px;
+  }
+  .marquee-track span::after{content:"✦";color:var(--accent);font-size:1rem;}
+  @keyframes scroll{to{transform:translateX(-50%);}}
+  @media (prefers-reduced-motion: reduce){.marquee-track{animation:none;}}
+
+  /* ---------- generic section head ---------- */
   .eyebrow{
-    display:flex;align-items:center;gap:9px;font-size:0.8rem;color:var(--leaf-gold);
-    font-weight:600;letter-spacing:0.02em;margin-bottom:16px;
+    display:inline-flex;align-items:center;gap:10px;font-size:0.82rem;font-weight:700;
+    letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;
   }
-  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--leaf-gold);}
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--accent);}
+  .sec{padding:120px 0;}
+  @media(max-width:640px){.sec{padding:80px 0;}}
+  .sec h2{font-size:clamp(2.2rem,5vw,3.8rem);max-width:18ch;}
+  .sec .sub{margin-top:22px;font-size:1.12rem;color:var(--ink-2);max-width:58ch;}
 
-  /* ---------- Origin ---------- */
-  .origin{padding:0 0 100px;}
-  .origin-panel{padding:52px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
-  @media(max-width:820px){.origin-panel{grid-template-columns:1fr;padding:34px 26px;}}
-  .origin h2{font-size:clamp(1.7rem,3vw,2.3rem);max-width:15ch;}
-  .origin-body{color:var(--ink-dim);font-size:1.03rem;max-width:52ch;margin-top:20px;}
-  .origin-body p+p{margin-top:14px;}
-  .single-leaf{font-size:6.5rem;text-align:center;filter:drop-shadow(0 6px 14px rgba(0,0,0,0.3));opacity:0.9;}
+  /* ---------- Problem / approach ---------- */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:64px;}
+  @media(max-width:860px){.compare{grid-template-columns:1fr;}}
+  .col{padding:44px;border-radius:28px;}
+  @media(max-width:640px){.col{padding:30px 24px;}}
+  .col.typical{background:var(--bg-soft);border:1px solid var(--line);}
+  .col.umes{background:var(--dark);color:var(--on-dark);}
+  .col h3{font-size:1.5rem;margin-bottom:28px;letter-spacing:-0.02em;}
+  .col.typical h3{color:var(--ink-3);}
+  .col ul{list-style:none;margin:0;padding:0;display:grid;gap:18px;}
+  .col li{display:flex;gap:14px;align-items:flex-start;font-size:1.02rem;}
+  .col.typical li{color:var(--ink-2);}
+  .col.umes li{color:var(--on-dark-2);}
+  .col.umes li b{color:var(--on-dark);font-weight:600;}
+  .ico{flex-shrink:0;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+  .ico svg{width:13px;height:13px;}
+  .typical .ico{background:#E4E4DE;color:var(--ink-3);}
+  .umes .ico{background:var(--accent);color:#fff;}
 
-  /* ---------- Tracks ---------- */
-  .tracks{padding:0 0 100px;}
-  .tracks .head{max-width:52ch;margin-bottom:40px;}
-  .tracks .head h2{font-size:clamp(1.7rem,3vw,2.3rem);}
-  .tracks .head p{margin-top:14px;color:var(--ink-dim);font-size:1.03rem;}
-  .track-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  @media(max-width:980px){.track-grid{grid-template-columns:1fr 1fr;}}
-  @media(max-width:620px){.track-grid{grid-template-columns:1fr;}}
-  .track-card{padding:32px;display:flex;flex-direction:column;}
-  .track-card .icon{
-    width:42px;height:42px;border-radius:10px;
-    background:linear-gradient(135deg, rgba(224,145,47,0.25), rgba(193,67,42,0.2));
-    display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+  /* ---------- Services ---------- */
+  .services{background:var(--bg-soft);}
+  .svc-list{margin-top:64px;border-top:1.5px solid var(--ink);}
+  .svc{
+    display:grid;grid-template-columns:90px 1fr 1.2fr 48px;gap:32px;align-items:center;
+    padding:42px 0;border-bottom:1px solid var(--line);transition:padding .25s ease, background .25s;
   }
-  .track-card .icon svg{width:20px;height:20px;color:var(--leaf-gold);}
-  .track-card .tag{font-size:0.78rem;color:var(--leaf-gold);display:block;margin-bottom:10px;font-weight:600;letter-spacing:0.02em;}
-  .track-card h3{font-size:1.4rem;margin-bottom:12px;}
-  .track-card p{color:var(--ink-dim);font-size:0.98rem;}
+  .svc:hover{padding-left:16px;padding-right:16px;background:#fff;}
+  .svc .n{font-size:1rem;font-weight:700;color:var(--accent);}
+  .svc h3{font-size:clamp(1.6rem,3vw,2.4rem);}
+  .svc h3 small{display:block;font-size:0.82rem;font-weight:600;color:var(--ink-3);letter-spacing:0;margin-bottom:10px;text-transform:uppercase;}
+  .svc p{color:var(--ink-2);font-size:1.02rem;}
+  .svc .arrow{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s;}
+  .svc:hover .arrow{background:var(--ink);color:#fff;}
+  .svc .arrow svg{width:18px;height:18px;}
+  @media(max-width:860px){
+    .svc{grid-template-columns:1fr;gap:14px;padding:32px 0;}
+    .svc .arrow{display:none;}
+    .svc:hover{padding-left:0;padding-right:0;background:transparent;}
+  }
 
   /* ---------- Process ---------- */
-  .process{padding:0 0 100px;}
-  .process-panel{padding:52px;}
-  @media(max-width:640px){.process-panel{padding:34px 24px;}}
-  .process .head{max-width:52ch;margin-bottom:40px;}
-  .process .head h2{font-size:clamp(1.7rem,3vw,2.3rem);}
-  .process .head p{margin-top:14px;color:var(--ink-dim);font-size:1.03rem;}
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
-  @media(max-width:760px){.steps{grid-template-columns:1fr;gap:28px;}}
-  .step{padding:0 26px;position:relative;}
-  .step:first-child{padding-left:0;}
-  .step:last-child{padding-right:0;}
-  .steps:not(.stacked) .step + .step{border-left:1px solid var(--border);}
-  @media(max-width:760px){.step{padding:0!important;}.steps .step + .step{border-left:none!important;}}
-  .step .num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--leaf-gold);line-height:1;margin-bottom:12px;}
-  .step h3{font-size:1.2rem;margin-bottom:10px;}
-  .step p{color:var(--ink-dim);font-size:0.95rem;}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:64px;}
+  @media(max-width:860px){.steps{grid-template-columns:1fr;}}
+  .step{padding:40px 36px;border:1.5px solid var(--line);border-radius:28px;position:relative;transition:border-color .25s, transform .25s;}
+  .step:hover{border-color:var(--ink);transform:translateY(-4px);}
+  .step .num{font-size:4.5rem;font-weight:800;letter-spacing:-0.06em;line-height:1;color:var(--accent);margin-bottom:34px;}
+  .step h3{font-size:1.7rem;margin-bottom:14px;}
+  .step p{color:var(--ink-2);}
+
+  /* ---------- Why ---------- */
+  .why{background:var(--bg-soft);}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:64px;}
+  @media(max-width:980px){.why-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:620px){.why-grid{grid-template-columns:1fr;}}
+  .why-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;}
+  .why-card .ic{width:48px;height:48px;border-radius:14px;background:var(--ink);color:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:26px;}
+  .why-card .ic svg{width:22px;height:22px;}
+  .why-card h3{font-size:1.3rem;margin-bottom:10px;letter-spacing:-0.02em;}
+  .why-card p{color:var(--ink-2);font-size:0.98rem;}
 
   /* ---------- Reach ---------- */
-  .reach{padding:0 0 100px;}
-  .reach-panel{padding:52px;}
-  @media(max-width:640px){.reach-panel{padding:34px 24px;}}
-  .reach .head{max-width:52ch;margin-bottom:40px;}
-  .reach .head h2{font-size:clamp(1.7rem,3vw,2.3rem);}
-  .reach .head p{margin-top:14px;color:var(--ink-dim);font-size:1.03rem;}
+  .reach-box{margin-top:56px;background:var(--dark);border-radius:32px;padding:48px;color:var(--on-dark);}
+  @media(max-width:640px){.reach-box{padding:28px 14px;}}
   .network{width:100%;height:auto;}
-  .network text{font-family:'Manrope',sans-serif;fill:var(--ink);font-size:14px;font-weight:600;}
-  .network .sub{fill:var(--ink-mute);font-size:11.5px;font-weight:400;}
+  .network text{font-family:'Inter',sans-serif;fill:#fff;font-size:15px;font-weight:700;}
+  .network .sub{fill:var(--on-dark-2);font-size:12px;font-weight:500;}
 
-  /* ---------- Connect ---------- */
-  .connect{padding:0 0 90px;}
-  .connect-panel{padding:52px;}
-  @media(max-width:640px){.connect-panel{padding:34px 24px;}}
-  .connect .head{max-width:50ch;margin-bottom:12px;}
-  .connect h2{font-size:clamp(1.8rem,3.2vw,2.4rem);}
-  .connect .head p{margin-top:12px;color:var(--ink-dim);font-size:1.02rem;}
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px;}
-  @media(max-width:700px){.contact-grid{grid-template-columns:1fr;}}
+  /* ---------- CTA / contact ---------- */
+  .cta{background:var(--dark);color:var(--on-dark);padding:130px 0 120px;}
+  @media(max-width:640px){.cta{padding:84px 0;}}
+  .cta h2{font-size:clamp(2.6rem,7vw,5.6rem);letter-spacing:-0.05em;line-height:0.98;max-width:15ch;}
+  .cta .sub{margin-top:26px;font-size:1.15rem;color:var(--on-dark-2);max-width:50ch;}
+  .cta .cta-row{margin-top:40px;}
+  .cta .btn-outline{border-color:rgba(255,255,255,.35);color:#fff;}
+  .cta .btn-outline:hover{background:#fff;color:var(--ink);border-color:#fff;}
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:84px;}
+  @media(max-width:980px){.contact-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:620px){.contact-grid{grid-template-columns:1fr;}}
   .contact-card{
-    display:flex;align-items:center;gap:16px;padding:22px;border-radius:12px;
-    border:1px solid var(--border);background:var(--glass-strong);
-    transition:background .2s ease, transform .2s ease;
+    display:flex;align-items:center;gap:18px;padding:24px;border-radius:var(--radius);
+    background:var(--dark-2);border:1px solid rgba(255,255,255,.08);
+    transition:border-color .2s, transform .2s;
   }
-  .contact-card:hover{background:rgba(255,255,255,0.14);transform:translateY(-2px);}
-  .contact-card .icon{
-    width:40px;height:40px;border-radius:9px;flex-shrink:0;
-    background:linear-gradient(135deg, rgba(224,145,47,0.3), rgba(193,67,42,0.22));
-    display:flex;align-items:center;justify-content:center;
-  }
-  .contact-card .icon svg{width:19px;height:19px;color:var(--leaf-gold);}
-  .contact-card .label{font-weight:700;font-size:1rem;}
-  .contact-card .detail{color:var(--ink-mute);font-size:0.85rem;margin-top:2px;}
+  .contact-card:hover{border-color:var(--accent);transform:translateY(-3px);}
+  .contact-card .icon{width:46px;height:46px;border-radius:13px;flex-shrink:0;background:rgba(255,90,31,.14);color:var(--accent);display:flex;align-items:center;justify-content:center;}
+  .contact-card .icon svg{width:21px;height:21px;}
+  .contact-card .label{font-weight:700;font-size:1.02rem;}
+  .contact-card .detail{color:var(--on-dark-2);font-size:0.86rem;margin-top:2px;}
 
   /* ---------- Footer ---------- */
-  footer{padding:60px 16px 36px;position:relative;z-index:2;}
-  .footer-panel{padding:44px 48px 28px;}
-  @media(max-width:640px){.footer-panel{padding:32px 24px 22px;}}
-  .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:32px;border-bottom:1px solid var(--border);}
-  @media(max-width:760px){.footer-top{grid-template-columns:1fr;gap:28px;}}
-  .footer-brand{display:flex;align-items:center;gap:9px;margin-bottom:12px;}
-  .footer-brand span{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;}
-  .footer-top p{color:var(--ink-mute);font-size:0.92rem;max-width:34ch;}
-  .footer-col h4{font-family:'Manrope',sans-serif;font-size:0.82rem;color:var(--ink-mute);font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px;}
-  .footer-col a{display:block;color:var(--ink-dim);font-size:0.92rem;margin-bottom:10px;transition:color .2s;}
-  .footer-col a:hover{color:var(--ink);}
-  .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;color:var(--ink-mute);font-size:0.84rem;}
+  footer{background:#060608;color:var(--on-dark);padding:72px 0 36px;}
+  .footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1);}
+  @media(max-width:760px){.footer-top{grid-template-columns:1fr;gap:36px;}}
+  footer .brand .mark{background:#fff;color:var(--ink);}
+  footer p{color:var(--on-dark-2);font-size:0.95rem;max-width:38ch;margin-top:18px;}
+  .footer-col h4{font-size:0.8rem;color:var(--on-dark-2);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px;}
+  .footer-col a{display:block;color:var(--on-dark);font-size:0.96rem;margin-bottom:12px;transition:color .2s;}
+  .footer-col a:hover{color:var(--accent);}
+  .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:28px;color:var(--on-dark-2);font-size:0.85rem;}
 
-  a:focus-visible, .btn:focus-visible, .contact-card:focus-visible, .menu-btn:focus-visible{outline:2px solid var(--leaf-gold);outline-offset:3px;}
+  /* ---------- reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  a:focus-visible, .btn:focus-visible, .menu-btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 </style>
 </head>
 <body>
 
-<div id="leafLayer"></div>
-
 <header>
-  <div class="inner glass">
-    <div class="brand">
-      <span class="mark">🍁</span>
-      <span>UMES</span>
-    </div>
+  <div class="wrap inner">
+    <a class="brand" href="#top"><span class="mark">U<i>.</i></span>UMES</a>
     <nav class="primary-nav">
-      <a href="#origin">Origin</a>
-      <a href="#tracks">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#services">Services</a>
       <a href="#process">Process</a>
+      <a href="#why">Why UMES</a>
       <a href="#reach">Reach</a>
-      <a href="#connect">Contact</a>
     </nav>
     <div class="nav-actions">
-      <a class="btn btn-primary" href="#connect" style="padding:10px 18px;font-size:0.86rem;">Start a project</a>
+      <a class="btn btn-dark btn-sm" href="#connect">Get in touch</a>
       <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
   </div>
-  <nav id="mobileNav" class="glass">
-    <a href="#origin">Origin</a>
-    <a href="#tracks">Services</a>
+  <nav id="mobileNav">
+    <a href="#approach">Approach</a>
+    <a href="#services">Services</a>
     <a href="#process">Process</a>
+    <a href="#why">Why UMES</a>
     <a href="#reach">Reach</a>
-    <a href="#connect">Contact</a>
+    <a class="cta" href="#connect">Get in touch →</a>
   </nav>
 </header>
 
+<main id="top">
+
 <section class="hero">
   <div class="wrap">
-    <div class="hero-panel glass">
-      <span class="kicker"><span class="mark">🍁</span> Founded in Kashmir</span>
-      <h1>Websites, marketing, and networks — engineered with precision</h1>
-      <p class="lead">UMES builds and maintains the digital backbone businesses run on: websites that hold up, marketing that compounds, and network architecture built for scale — delivered in quiet coordination with partners across the United States and the United Kingdom.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#connect">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M6 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v3a2 2 0 0 1-2 2C10.5 20 4 13.5 4 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
-          Start a project
-        </a>
-        <a class="btn btn-ghost" href="https://docs.google.com/document/d/1CCjt33yVXPbfyl2y9BMoie4mlxPhYm4IWzmHqXeajIw/edit?tab=t.0" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.3"/><path d="M14 3v5h5M9 13h6M9 16h6" stroke="currentColor" stroke-width="1.3"/></svg>
-          Read our Global Outlook
-        </a>
+    <span class="pill"><span class="dot"></span>Founded in Kashmir · Serving the US &amp; UK</span>
+    <h1>We build the digital backbone <span class="accent">businesses run on.</span></h1>
+    <p class="lead">UMES delivers website development, digital marketing, and network architecture as one coordinated practice — engineered with the same rigor as physical infrastructure.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#connect">Start a project
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-outline" href="https://docs.google.com/document/d/1CCjt33yVXPbfyl2y9BMoie4mlxPhYm4IWzmHqXeajIw/edit?tab=t.0" target="_blank" rel="noopener">Read our Global Outlook</a>
+    </div>
+
+    <div class="quick">
+      <a href="#services"><span><small>Build</small>Website Development</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M3 9h18"/></svg></a>
+      <a href="#services"><span><small>Grow</small>Digital Marketing</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l18-7-7 18-3-8-8-3Z"/></svg></a>
+      <a href="#services"><span><small>Scale</small>Network Architecture</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7 7.5 10.3 16M17 7.5 13.7 16M7.4 6h9.2"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Website Development</span><span>Digital Marketing</span><span>Network Architecture</span><span>Kashmir</span><span>United States</span><span>United Kingdom</span>
+    <span>Website Development</span><span>Digital Marketing</span><span>Network Architecture</span><span>Kashmir</span><span>United States</span><span>United Kingdom</span>
+  </div>
+</div>
+
+<section class="sec" id="approach">
+  <div class="wrap">
+    <div class="eyebrow reveal">Our approach</div>
+    <h2 class="reveal">Engineering as a discipline, not an afterthought.</h2>
+    <p class="sub reveal">UMES began in Kashmir on a simple idea: a site, a campaign, a network — each holds together only when it's built with the same rigor as physical infrastructure.</p>
+
+    <div class="compare">
+      <div class="col typical reveal">
+        <h3>The typical approach</h3>
+        <ul>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6 6 18"/></svg></span>Web, marketing, and networking handled by separate vendors</li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6 6 18"/></svg></span>Campaigns run in isolation from the site they point to</li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6 6 18"/></svg></span>Long onboarding and forms to chase</li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6 6 18"/></svg></span>Support that fades after launch</li>
+        </ul>
       </div>
-      <div class="trust-row">
-        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M8 20h8" stroke="currentColor" stroke-width="1.3"/></svg>Website Development</div>
-        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11l18-7-7 18-3-8-8-3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>Digital Marketing</div>
-        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="5" cy="6" r="2.4" stroke="currentColor" stroke-width="1.3"/><circle cx="19" cy="6" r="2.4" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="18" r="2.4" stroke="currentColor" stroke-width="1.3"/><path d="M7 7.5 10.3 16M17 7.5 13.7 16M7.4 6h9.2" stroke="currentColor" stroke-width="1.2"/></svg>Network Architecture</div>
+      <div class="col umes reveal">
+        <h3>The UMES way</h3>
+        <ul>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="m5 12 5 5 9-10"/></svg></span><span><b>One coordinated practice</b> — web, marketing, and network under one plan</span></li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="m5 12 5 5 9-10"/></svg></span><span><b>Campaigns that compound</b>, planned alongside the build</span></li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="m5 12 5 5 9-10"/></svg></span><span><b>A short conversation</b>, a clear scope, a build that stays on track</span></li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="m5 12 5 5 9-10"/></svg></span><span><b>Delivery that continues</b> after launch as things evolve</span></li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="origin" id="origin">
+<section class="sec services" id="services">
   <div class="wrap">
-    <div class="origin-panel glass">
-      <div>
-        <div class="eyebrow"><span class="dot"></span>Origin</div>
-        <h2>Built on engineering as a discipline</h2>
-        <div class="origin-body">
-          <p>UMES originated in Kashmir as an emerging startup, built on the idea that digital presence — a site, a campaign, a network — holds together only when it's engineered with the same rigor as physical infrastructure.</p>
-          <p>That principle now shapes how UMES builds: websites, digital marketing, and high-level network architecture, delivered as one coordinated practice with partners across the United States and the United Kingdom.</p>
-        </div>
-      </div>
-      <div class="single-leaf">🍁</div>
-    </div>
-  </div>
-</section>
+    <div class="eyebrow reveal">Services</div>
+    <h2 class="reveal">Three disciplines, one operating rhythm.</h2>
+    <p class="sub reveal">The same planning, the same partners, the same standard of follow-through — across everything UMES builds.</p>
 
-<section class="tracks" id="tracks">
-  <div class="wrap">
-    <div class="head">
-      <div class="eyebrow"><span class="dot"></span>Services</div>
-      <h2>Three disciplines, one operating rhythm</h2>
-      <p>Website development, digital marketing, and network architecture run as a single practice at UMES — the same planning, the same partners, the same standard of follow-through.</p>
-    </div>
-    <div class="track-grid">
-      <div class="track-card glass">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M8 20h8M3 9h18" stroke="currentColor" stroke-width="1.4"/></svg></div>
-        <span class="tag">Website Development</span>
-        <h3>Built to hold up</h3>
+    <div class="svc-list">
+      <div class="svc reveal">
+        <span class="n">01</span>
+        <h3><small>Website Development</small>Built to hold up.</h3>
         <p>Sites designed and engineered with the same precision as critical infrastructure — fast, maintainable, and built to scale with the business behind them.</p>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
       </div>
-      <div class="track-card glass">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11l18-7-7 18-3-8-8-3Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
-        <span class="tag">Digital Marketing</span>
-        <h3>Growth that compounds</h3>
+      <div class="svc reveal">
+        <span class="n">02</span>
+        <h3><small>Digital Marketing</small>Growth that compounds.</h3>
         <p>Campaigns and channels planned and coordinated rather than run in isolation — built to compound over time, not just fill a calendar.</p>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
       </div>
-      <div class="track-card glass">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="5" cy="6" r="2.4" stroke="currentColor" stroke-width="1.4"/><circle cx="19" cy="6" r="2.4" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="18" r="2.4" stroke="currentColor" stroke-width="1.4"/><path d="M7 7.5 10.3 16M17 7.5 13.7 16M7.4 6h9.2" stroke="currentColor" stroke-width="1.3"/></svg></div>
-        <span class="tag">Network Architecture</span>
-        <h3>Engineered for scale</h3>
+      <div class="svc reveal">
+        <span class="n">03</span>
+        <h3><small>Network Architecture</small>Engineered for scale.</h3>
         <p>High-level network design — from topology to security posture — planned with the same rigor UMES brings to every build.</p>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
       </div>
     </div>
   </div>
 </section>
 
-<section class="process" id="process">
+<section class="sec" id="process">
   <div class="wrap">
-    <div class="process-panel glass">
-      <div class="head">
-        <div class="eyebrow"><span class="dot"></span>How we work</div>
-        <h2>A straightforward way to start</h2>
-        <p>No long onboarding, no forms to chase — a short conversation, a clear scope, and a build that stays on track.</p>
+    <div class="eyebrow reveal">How we work</div>
+    <h2 class="reveal">A straightforward way to start.</h2>
+    <p class="sub reveal">No long onboarding, no forms to chase — a short conversation, a clear scope, and a build that stays on track.</p>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="num">01</div>
+        <h3>Discover</h3>
+        <p>A conversation about what the site, campaign, or network needs to do — and for whom.</p>
       </div>
-      <div class="steps">
-        <div class="step">
-          <div class="num">01</div>
-          <h3>Discover</h3>
-          <p>A conversation about what the site, campaign, or network needs to do — and for whom.</p>
-        </div>
-        <div class="step">
-          <div class="num">02</div>
-          <h3>Build</h3>
-          <p>UMES plans and builds with the same discipline across every engagement, large or small.</p>
-        </div>
-        <div class="step">
-          <div class="num">03</div>
-          <h3>Support</h3>
-          <p>Delivery doesn't end at launch — UMES stays coordinated with you as things evolve.</p>
-        </div>
+      <div class="step reveal">
+        <div class="num">02</div>
+        <h3>Build</h3>
+        <p>UMES plans and builds with the same discipline across every engagement, large or small.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">03</div>
+        <h3>Support</h3>
+        <p>Delivery doesn't end at launch — UMES stays coordinated with you as things evolve.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="reach" id="reach">
+<section class="sec why" id="why">
   <div class="wrap">
-    <div class="reach-panel glass">
-      <div class="head">
-        <div class="eyebrow"><span class="dot"></span>Reach</div>
-        <h2>A network kept deliberately small</h2>
-        <p>UMES delivers in quiet partnership across three points — origin, and two partner geographies — favoring resilience and craft over scale for its own sake.</p>
+    <div class="eyebrow reveal">Why UMES</div>
+    <h2 class="reveal">Built different, on purpose.</h2>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 3 8l9 5 9-5-9-5ZM3 13l9 5 9-5"/></svg></div>
+        <h3>Engineering rigor</h3>
+        <p>Every site, campaign, and network is built with the discipline of physical infrastructure.</p>
       </div>
-      <svg class="network" viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg">
-        <line x1="140" y1="70" x2="450" y2="150" stroke="#C1432A" stroke-width="1.2" opacity="0.7"/>
-        <line x1="450" y1="150" x2="760" y2="70" stroke="#C1432A" stroke-width="1.2" opacity="0.7"/>
-        <line x1="140" y1="70" x2="760" y2="70" stroke="#E4CFC2" stroke-width="1" stroke-dasharray="2 6" opacity="0.5"/>
-        <circle cx="140" cy="70" r="6" fill="#E0912F"/>
-        <circle cx="450" cy="150" r="6" fill="#FBEFE4"/>
-        <circle cx="760" cy="70" r="6" fill="#FBEFE4"/>
-        <text x="140" y="45" text-anchor="middle">Kashmir</text>
-        <text x="140" y="95" text-anchor="middle" class="sub">Origin</text>
-        <text x="450" y="180" text-anchor="middle">United States</text>
-        <text x="450" y="130" text-anchor="middle" class="sub">Partner network</text>
-        <text x="760" y="45" text-anchor="middle">United Kingdom</text>
-        <text x="760" y="95" text-anchor="middle" class="sub">Partner network</text>
+      <div class="why-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z"/></svg></div>
+        <h3>Global partners</h3>
+        <p>Delivered in quiet coordination with partners across the United States and the United Kingdom.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h4l3-8 4 16 3-8h2"/></svg></div>
+        <h3>One practice</h3>
+        <p>Web, marketing, and network run on a single operating rhythm — no hand-offs between vendors.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5 9-10"/></svg></div>
+        <h3>Clear scope</h3>
+        <p>A short conversation and a defined plan — then a build that stays on track.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 12h18"/></svg></div>
+        <h3>Built to scale</h3>
+        <p>Maintainable foundations that grow with the business behind them.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v5h-5"/></svg></div>
+        <h3>Ongoing support</h3>
+        <p>Delivery continues after launch, coordinated with you as things evolve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="reach">
+  <div class="wrap">
+    <div class="eyebrow reveal">Reach</div>
+    <h2 class="reveal">A network kept deliberately small.</h2>
+    <p class="sub reveal">Three points — origin, and two partner geographies — favoring resilience and craft over scale for its own sake.</p>
+    <div class="reach-box reveal">
+      <svg class="network" viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Network connecting Kashmir, the United States and the United Kingdom">
+        <line x1="140" y1="70" x2="450" y2="150" stroke="#FF5A1F" stroke-width="1.6" opacity="0.9"/>
+        <line x1="450" y1="150" x2="760" y2="70" stroke="#FF5A1F" stroke-width="1.6" opacity="0.9"/>
+        <line x1="140" y1="70" x2="760" y2="70" stroke="#A8A8B3" stroke-width="1" stroke-dasharray="2 6" opacity="0.6"/>
+        <circle cx="140" cy="70" r="8" fill="#FF5A1F"/>
+        <circle cx="450" cy="150" r="8" fill="#fff"/>
+        <circle cx="760" cy="70" r="8" fill="#fff"/>
+        <text x="140" y="42" text-anchor="middle">Kashmir</text>
+        <text x="140" y="100" text-anchor="middle" class="sub">Origin</text>
+        <text x="450" y="185" text-anchor="middle">United States</text>
+        <text x="450" y="128" text-anchor="middle" class="sub">Partner network</text>
+        <text x="760" y="42" text-anchor="middle">United Kingdom</text>
+        <text x="760" y="100" text-anchor="middle" class="sub">Partner network</text>
       </svg>
     </div>
   </div>
 </section>
 
-<section class="connect" id="connect">
+<section class="cta" id="connect">
   <div class="wrap">
-    <div class="connect-panel glass">
-      <div class="head">
-        <div class="eyebrow"><span class="dot"></span>Contact</div>
-        <h2>Reach UMES</h2>
-        <p>Five direct lines in — no forms, no queue.</p>
-      </div>
-      <div class="contact-grid">
-        <a class="contact-card" href="https://docs.google.com/document/d/1CCjt33yVXPbfyl2y9BMoie4mlxPhYm4IWzmHqXeajIw/edit?tab=t.0" target="_blank" rel="noopener">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.3"/><path d="M14 3v5h5M9 13h6M9 16h6" stroke="currentColor" stroke-width="1.3"/></svg></div>
-          <div><div class="label">Global Outlook</div><div class="detail">PDF document</div></div>
-        </a>
-        <a class="contact-card" href="tel:+13136468164">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v3a2 2 0 0 1-2 2C10.5 20 4 13.5 4 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
-          <div><div class="label">Help</div><div class="detail">+1 (313) 646-8164</div></div>
-        </a>
-        <a class="contact-card" href="https://umes.info/cdn-cgi/l/email-protection#1871767e77586d757d6b3671767e77">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.3"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.3"/></svg></div>
-          <div><div class="label">Contact us</div><div class="detail">Email</div></div>
-        </a>
-        <a class="contact-card" href="https://jannu.us/" target="_blank" rel="noopener">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.3"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z" stroke="currentColor" stroke-width="1.3"/></svg></div>
-          <div><div class="label">Partner service</div><div class="detail">jannu.us</div></div>
-        </a>
-        <a class="contact-card" href="https://faisalfjan.carrd.co/" target="_blank" rel="noopener" style="grid-column:1/-1;max-width:calc(50% - 7px);">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5" stroke="currentColor" stroke-width="1.3"/><circle cx="17" cy="9" r="2.5" stroke="currentColor" stroke-width="1.3"/><path d="M15.5 20c.2-2.5 2-4.4 4.5-4.9" stroke="currentColor" stroke-width="1.3"/></svg></div>
-          <div><div class="label">Board members</div><div class="detail">Meet the board</div></div>
-        </a>
-      </div>
+    <div class="eyebrow reveal">Contact</div>
+    <h2 class="reveal">Let's build something that holds up.</h2>
+    <p class="sub reveal">Five direct lines in — no forms, no queue.</p>
+    <div class="cta-row reveal">
+      <a class="btn btn-primary" href="tel:+13136468164">Call +1 (313) 646-8164
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-outline" href="https://umes.info/cdn-cgi/l/email-protection#1871767e77586d757d6b3671767e77">Email us</a>
+    </div>
+
+    <div class="contact-grid">
+      <a class="contact-card reveal" href="https://docs.google.com/document/d/1CCjt33yVXPbfyl2y9BMoie4mlxPhYm4IWzmHqXeajIw/edit?tab=t.0" target="_blank" rel="noopener">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5M9 13h6M9 16h6"/></svg></div>
+        <div><div class="label">Global Outlook</div><div class="detail">PDF document</div></div>
+      </a>
+      <a class="contact-card reveal" href="tel:+13136468164">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v3a2 2 0 0 1-2 2C10.5 20 4 13.5 4 6a2 2 0 0 1 2-2Z"/></svg></div>
+        <div><div class="label">Help</div><div class="detail">+1 (313) 646-8164</div></div>
+      </a>
+      <a class="contact-card reveal" href="https://umes.info/cdn-cgi/l/email-protection#1871767e77586d757d6b3671767e77">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16v12H4V6Z"/><path d="m4 7 8 6 8-6"/></svg></div>
+        <div><div class="label">Contact us</div><div class="detail">Email</div></div>
+      </a>
+      <a class="contact-card reveal" href="https://jannu.us/" target="_blank" rel="noopener">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z"/></svg></div>
+        <div><div class="label">Partner service</div><div class="detail">jannu.us</div></div>
+      </a>
+      <a class="contact-card reveal" href="https://faisalfjan.carrd.co/" target="_blank" rel="noopener">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 20c.2-2.5 2-4.4 4.5-4.9"/></svg></div>
+        <div><div class="label">Board members</div><div class="detail">Meet the board</div></div>
+      </a>
     </div>
   </div>
 </section>
 
+</main>
+
 <footer>
-  <div class="wrap" style="padding:0;">
-    <div class="footer-panel glass">
-      <div class="footer-top">
-        <div>
-          <div class="footer-brand"><span class="mark">🍁</span><span>UMES</span></div>
-          <p>Website development, digital marketing, and network architecture — engineered from Kashmir, delivered with partners across the US and UK.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Site</h4>
-          <a href="#origin">Origin</a>
-          <a href="#tracks">Services</a>
-          <a href="#process">Process</a>
-          <a href="#reach">Reach</a>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <a href="tel:+13136468164">+1 (313) 646-8164</a>
-          <a href="https://umes.info/cdn-cgi/l/email-protection#1871767e77586d757d6b3671767e77">Email</a>
-          <a href="https://jannu.us/" target="_blank" rel="noopener">Partner service</a>
-          <a href="https://faisalfjan.carrd.co/" target="_blank" rel="noopener">Board members</a>
-        </div>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="#top"><span class="mark">U<i>.</i></span>UMES</a>
+        <p>Website development, digital marketing, and network architecture — engineered from Kashmir, delivered with partners across the US and UK.</p>
       </div>
-      <div class="footer-bottom">
-        <span>© 2026 UMES. All rights reserved.</span>
-        <span>Kashmir · United States · United Kingdom</span>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <a href="#approach">Approach</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#why">Why UMES</a>
+        <a href="#reach">Reach</a>
       </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+13136468164">+1 (313) 646-8164</a>
+        <a href="https://umes.info/cdn-cgi/l/email-protection#1871767e77586d757d6b3671767e77">Email</a>
+        <a href="https://jannu.us/" target="_blank" rel="noopener">Partner service</a>
+        <a href="https://faisalfjan.carrd.co/" target="_blank" rel="noopener">Board members</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 UMES. All rights reserved.</span>
+      <span>Kashmir · United States · United Kingdom</span>
     </div>
   </div>
 </footer>
@@ -481,25 +531,14 @@
     menuBtn.setAttribute('aria-expanded', 'false');
   }));
 
-  // falling leaves
+  // reveal on scroll
   (function(){
-    const layer = document.getElementById('leafLayer');
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const count = reduce ? 6 : 16;
-    for(let i=0;i<count;i++){
-      const el = document.createElement('div');
-      el.className = 'leaf';
-      const size = 16 + Math.random()*18;
-      const dur = 14 + Math.random()*14;
-      const delay = Math.random()*-20;
-      const x = Math.random()*100;
-      el.style.setProperty('--size', size+'px');
-      el.style.setProperty('--dur', dur+'s');
-      el.style.setProperty('--delay', delay+'s');
-      el.style.setProperty('--x', x+'vw');
-      el.textContent = '🍁';
-      layer.appendChild(el);
-    }
+    const els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:0.12});
+    els.forEach(e=>io.observe(e));
   })();
 </script>
 
