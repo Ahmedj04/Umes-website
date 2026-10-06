@@ -7,20 +7,22 @@
 <meta name="description" content="UMES builds websites, runs digital marketing, and designs high-level network architecture — engineered with the same precision, from Kashmir to partners across the United States and the United Kingdom.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --plum:#2B1220;
     --wine:#48192A;
     --sienna:#6B2B1D;
     --ink:#FBEFE4;
-    --ink-dim:#D9BEB0;
+    --ink-dim:#E4CFC2;
+    --ink-mute:#C7AA9C;
     --leaf-red:#C1432A;
     --leaf-gold:#E0912F;
     --leaf-rust:#8C2E1E;
-    --glass:rgba(255,255,255,0.06);
+    --glass:rgba(255,255,255,0.055);
     --glass-strong:rgba(255,255,255,0.1);
     --border:rgba(255,255,255,0.14);
+    --radius:16px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -30,8 +32,8 @@
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
     background:
-      radial-gradient(1200px 700px at 20% -10%, rgba(224,145,47,0.18), transparent 60%),
-      radial-gradient(1000px 800px at 90% 10%, rgba(193,67,42,0.16), transparent 55%),
+      radial-gradient(1200px 700px at 20% -10%, rgba(224,145,47,0.16), transparent 60%),
+      radial-gradient(1000px 800px at 90% 10%, rgba(193,67,42,0.14), transparent 55%),
       linear-gradient(180deg, var(--plum) 0%, var(--wine) 45%, var(--sienna) 100%);
     background-attachment:fixed;
     overflow-x:hidden;
@@ -39,19 +41,19 @@
   h1,h2,h3{font-family:'Cormorant Garamond', serif;font-weight:500;margin:0;letter-spacing:0.002em;}
   p{margin:0;}
   a{color:inherit;text-decoration:none;}
+  button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;}
   img,video{max-width:100%;display:block;}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;position:relative;z-index:2;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 32px;position:relative;z-index:2;}
   @media(max-width:640px){.wrap{padding:0 20px;}}
+  section{scroll-margin-top:96px;}
 
   /* ---------- falling leaves layer ---------- */
-  #leafLayer{
-    position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;
-  }
+  #leafLayer{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
   .leaf{
     position:absolute;top:-10vh;left:var(--x);
     font-size:var(--size);line-height:1;
     animation:fall var(--dur) linear var(--delay) infinite;
-    opacity:0.9;
+    opacity:0.55;
     filter:drop-shadow(0 3px 6px rgba(0,0,0,0.3));
     will-change:transform;
   }
@@ -63,7 +65,7 @@
     100%{transform:translate(-10px,112vh) rotate(360deg);}
   }
   @media (prefers-reduced-motion: reduce){
-    .leaf{animation:none;opacity:0.5;top:20vh;}
+    .leaf{animation:none;opacity:0.3;top:20vh;}
   }
 
   /* ---------- glass utility ---------- */
@@ -72,104 +74,174 @@
     border:1px solid var(--border);
     backdrop-filter:blur(18px) saturate(150%);
     -webkit-backdrop-filter:blur(18px) saturate(150%);
-    border-radius:18px;
+    border-radius:var(--radius);
   }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 24px;border-radius:10px;font-size:0.92rem;font-weight:600;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--leaf-gold), var(--leaf-red));
+    color:#211009;box-shadow:0 8px 24px -8px rgba(224,145,47,0.5);
+  }
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 28px -8px rgba(224,145,47,0.65);}
+  .btn-ghost{
+    border:1px solid var(--border);color:var(--ink);background:var(--glass-strong);
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,0.15);}
+  .btn svg{width:16px;height:16px;}
 
   /* ---------- Header ---------- */
-  header{
-    position:sticky;top:0;z-index:30;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:18px 32px;margin:16px;
-  }
+  header{position:sticky;top:0;z-index:40;padding:16px;}
   header .inner{
     display:flex;align-items:center;justify-content:space-between;width:100%;
-    padding:14px 22px;border-radius:100px;
+    max-width:1140px;margin:0 auto;padding:12px 18px 12px 22px;border-radius:100px;
   }
-  .brand{display:flex;align-items:center;gap:10px;}
-  .brand svg{width:22px;height:22px;color:var(--leaf-gold);}
-  .brand span{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;}
-  nav{display:flex;gap:26px;}
-  nav a{font-size:0.88rem;color:var(--ink-dim);transition:color .2s;}
-  nav a:hover{color:var(--ink);}
-  @media(max-width:720px){nav{display:none;}}
+  .brand{display:flex;align-items:center;gap:9px;}
+  .brand .mark{font-size:1.2rem;line-height:1;}
+  .brand span{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;letter-spacing:0.01em;}
+  nav.primary-nav{display:flex;align-items:center;gap:30px;}
+  nav.primary-nav a{font-size:0.88rem;color:var(--ink-dim);transition:color .2s;}
+  nav.primary-nav a:hover{color:var(--ink);}
+  .nav-actions{display:flex;align-items:center;gap:14px;}
+  .menu-btn{display:none;padding:8px;}
+  .menu-btn svg{width:20px;height:20px;}
+  @media(max-width:860px){
+    nav.primary-nav{display:none;}
+    .menu-btn{display:inline-flex;}
+  }
+  #mobileNav{
+    display:none;max-width:1140px;margin:8px auto 0;padding:10px 14px;
+  }
+  #mobileNav.open{display:block;}
+  #mobileNav a{display:block;padding:12px 10px;font-size:0.96rem;color:var(--ink-dim);border-bottom:1px solid var(--border);}
+  #mobileNav a:last-child{border-bottom:none;}
 
   /* ---------- Hero ---------- */
-  .hero{position:relative;padding:70px 0 100px;}
-  .hero-panel{padding:56px;max-width:680px;}
-  @media(max-width:640px){.hero-panel{padding:34px 26px;}}
-  .kicker{display:inline-block;font-size:0.82rem;color:var(--leaf-gold);margin-bottom:20px;}
-  .hero h1{
-    font-size:clamp(2.1rem,5vw,3.6rem);line-height:1.08;max-width:15ch;
+  .hero{position:relative;padding:72px 0 96px;}
+  .hero-panel{padding:60px;max-width:720px;}
+  @media(max-width:640px){.hero-panel{padding:32px 24px;}}
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--leaf-gold);
+    margin-bottom:22px;font-weight:600;letter-spacing:0.01em;
   }
-  .hero p.lead{margin-top:22px;color:var(--ink-dim);font-size:1.1rem;max-width:44ch;}
-  .chip-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;}
-  .chip{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:10px 18px;border-radius:100px;font-size:0.88rem;
-    background:var(--glass-strong);border:1px solid var(--border);
-    transition:background .2s ease, transform .2s ease;
+  .kicker .mark{font-size:0.95rem;}
+  .hero h1{font-size:clamp(2.15rem,4.6vw,3.5rem);line-height:1.1;max-width:16ch;}
+  .hero p.lead{margin-top:22px;color:var(--ink-dim);font-size:1.12rem;max-width:46ch;}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;}
+  .trust-row{
+    display:flex;gap:28px;flex-wrap:wrap;margin-top:44px;padding-top:28px;
+    border-top:1px solid var(--border);
   }
-  .chip:hover{background:rgba(255,255,255,0.16);transform:translateY(-1px);}
-  .chip svg{width:15px;height:15px;color:var(--leaf-gold);}
+  .trust-item{display:flex;align-items:center;gap:10px;color:var(--ink-mute);font-size:0.86rem;}
+  .trust-item svg{width:17px;height:17px;color:var(--leaf-gold);flex-shrink:0;}
+
+  /* ---------- section heads ---------- */
+  .eyebrow{
+    display:flex;align-items:center;gap:9px;font-size:0.8rem;color:var(--leaf-gold);
+    font-weight:600;letter-spacing:0.02em;margin-bottom:16px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--leaf-gold);}
 
   /* ---------- Origin ---------- */
-  .origin{padding:40px 0 100px;}
+  .origin{padding:0 0 100px;}
   .origin-panel{padding:52px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
   @media(max-width:820px){.origin-panel{grid-template-columns:1fr;padding:34px 26px;}}
-  .origin h2{font-size:clamp(1.7rem,3vw,2.4rem);max-width:14ch;}
-  .origin-body{color:var(--ink-dim);font-size:1.03rem;max-width:52ch;}
+  .origin h2{font-size:clamp(1.7rem,3vw,2.3rem);max-width:15ch;}
+  .origin-body{color:var(--ink-dim);font-size:1.03rem;max-width:52ch;margin-top:20px;}
   .origin-body p+p{margin-top:14px;}
-  .single-leaf{width:100%;max-width:220px;justify-self:center;color:var(--leaf-red);}
+  .single-leaf{font-size:6.5rem;text-align:center;filter:drop-shadow(0 6px 14px rgba(0,0,0,0.3));opacity:0.9;}
 
   /* ---------- Tracks ---------- */
   .tracks{padding:0 0 100px;}
-  .tracks .head{max-width:50ch;margin-bottom:36px;}
-  .tracks .head h2{font-size:clamp(1.7rem,3vw,2.4rem);}
+  .tracks .head{max-width:52ch;margin-bottom:40px;}
+  .tracks .head h2{font-size:clamp(1.7rem,3vw,2.3rem);}
   .tracks .head p{margin-top:14px;color:var(--ink-dim);font-size:1.03rem;}
-  .track-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;}
+  .track-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
   @media(max-width:980px){.track-grid{grid-template-columns:1fr 1fr;}}
   @media(max-width:620px){.track-grid{grid-template-columns:1fr;}}
-  .track-card{padding:36px;}
-  .track-card .tag{font-size:0.8rem;color:var(--leaf-gold);display:block;margin-bottom:12px;}
-  .track-card h3{font-size:1.5rem;margin-bottom:12px;}
-  .track-card p{color:var(--ink-dim);font-size:1rem;}
+  .track-card{padding:32px;display:flex;flex-direction:column;}
+  .track-card .icon{
+    width:42px;height:42px;border-radius:10px;
+    background:linear-gradient(135deg, rgba(224,145,47,0.25), rgba(193,67,42,0.2));
+    display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+  }
+  .track-card .icon svg{width:20px;height:20px;color:var(--leaf-gold);}
+  .track-card .tag{font-size:0.78rem;color:var(--leaf-gold);display:block;margin-bottom:10px;font-weight:600;letter-spacing:0.02em;}
+  .track-card h3{font-size:1.4rem;margin-bottom:12px;}
+  .track-card p{color:var(--ink-dim);font-size:0.98rem;}
+
+  /* ---------- Process ---------- */
+  .process{padding:0 0 100px;}
+  .process-panel{padding:52px;}
+  @media(max-width:640px){.process-panel{padding:34px 24px;}}
+  .process .head{max-width:52ch;margin-bottom:40px;}
+  .process .head h2{font-size:clamp(1.7rem,3vw,2.3rem);}
+  .process .head p{margin-top:14px;color:var(--ink-dim);font-size:1.03rem;}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+  @media(max-width:760px){.steps{grid-template-columns:1fr;gap:28px;}}
+  .step{padding:0 26px;position:relative;}
+  .step:first-child{padding-left:0;}
+  .step:last-child{padding-right:0;}
+  .steps:not(.stacked) .step + .step{border-left:1px solid var(--border);}
+  @media(max-width:760px){.step{padding:0!important;}.steps .step + .step{border-left:none!important;}}
+  .step .num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--leaf-gold);line-height:1;margin-bottom:12px;}
+  .step h3{font-size:1.2rem;margin-bottom:10px;}
+  .step p{color:var(--ink-dim);font-size:0.95rem;}
 
   /* ---------- Reach ---------- */
   .reach{padding:0 0 100px;}
   .reach-panel{padding:52px;}
   @media(max-width:640px){.reach-panel{padding:34px 24px;}}
-  .reach .head{max-width:52ch;margin-bottom:44px;}
-  .reach .head h2{font-size:clamp(1.7rem,3vw,2.4rem);}
+  .reach .head{max-width:52ch;margin-bottom:40px;}
+  .reach .head h2{font-size:clamp(1.7rem,3vw,2.3rem);}
   .reach .head p{margin-top:14px;color:var(--ink-dim);font-size:1.03rem;}
   .network{width:100%;height:auto;}
-  .network text{font-family:'Manrope',sans-serif;fill:var(--ink);font-size:14px;}
-  .network .sub{fill:var(--ink-dim);font-size:11.5px;}
+  .network text{font-family:'Manrope',sans-serif;fill:var(--ink);font-size:14px;font-weight:600;}
+  .network .sub{fill:var(--ink-mute);font-size:11.5px;font-weight:400;}
 
   /* ---------- Connect ---------- */
   .connect{padding:0 0 90px;}
   .connect-panel{padding:52px;}
   @media(max-width:640px){.connect-panel{padding:34px 24px;}}
-  .connect h2{font-size:clamp(1.8rem,3.4vw,2.6rem);max-width:14ch;margin-bottom:36px;}
-  .link-row{
-    display:flex;align-items:center;justify-content:space-between;gap:18px;
-    padding:22px 8px;border-bottom:1px solid var(--border);
-    transition:padding-left .25s ease;
+  .connect .head{max-width:50ch;margin-bottom:12px;}
+  .connect h2{font-size:clamp(1.8rem,3.2vw,2.4rem);}
+  .connect .head p{margin-top:12px;color:var(--ink-dim);font-size:1.02rem;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px;}
+  @media(max-width:700px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-card{
+    display:flex;align-items:center;gap:16px;padding:22px;border-radius:12px;
+    border:1px solid var(--border);background:var(--glass-strong);
+    transition:background .2s ease, transform .2s ease;
   }
-  .link-row:first-of-type{border-top:1px solid var(--border);}
-  .link-row:hover{padding-left:14px;}
-  .link-row .left{display:flex;align-items:center;gap:16px;}
-  .link-row svg{width:20px;height:20px;color:var(--leaf-gold);flex-shrink:0;}
-  .link-row .label{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;}
-  .link-row .detail{color:var(--ink-dim);font-size:0.86rem;margin-top:2px;}
-  .link-row .go{color:var(--ink-dim);font-size:0.85rem;}
-
-  footer{padding:30px 32px 50px;position:relative;z-index:2;color:var(--ink-dim);font-size:0.85rem;
-    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  .contact-card:hover{background:rgba(255,255,255,0.14);transform:translateY(-2px);}
+  .contact-card .icon{
+    width:40px;height:40px;border-radius:9px;flex-shrink:0;
+    background:linear-gradient(135deg, rgba(224,145,47,0.3), rgba(193,67,42,0.22));
+    display:flex;align-items:center;justify-content:center;
   }
-  footer .fbrand{display:flex;align-items:center;gap:8px;color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:1.05rem;}
-  footer svg{width:16px;height:16px;color:var(--leaf-gold);}
+  .contact-card .icon svg{width:19px;height:19px;color:var(--leaf-gold);}
+  .contact-card .label{font-weight:700;font-size:1rem;}
+  .contact-card .detail{color:var(--ink-mute);font-size:0.85rem;margin-top:2px;}
 
-  a:focus-visible, .chip:focus-visible, .link-row:focus-visible{outline:2px solid var(--leaf-gold);outline-offset:3px;}
+  /* ---------- Footer ---------- */
+  footer{padding:60px 16px 36px;position:relative;z-index:2;}
+  .footer-panel{padding:44px 48px 28px;}
+  @media(max-width:640px){.footer-panel{padding:32px 24px 22px;}}
+  .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+  @media(max-width:760px){.footer-top{grid-template-columns:1fr;gap:28px;}}
+  .footer-brand{display:flex;align-items:center;gap:9px;margin-bottom:12px;}
+  .footer-brand span{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;}
+  .footer-top p{color:var(--ink-mute);font-size:0.92rem;max-width:34ch;}
+  .footer-col h4{font-family:'Manrope',sans-serif;font-size:0.82rem;color:var(--ink-mute);font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px;}
+  .footer-col a{display:block;color:var(--ink-dim);font-size:0.92rem;margin-bottom:10px;transition:color .2s;}
+  .footer-col a:hover{color:var(--ink);}
+  .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;color:var(--ink-mute);font-size:0.84rem;}
+
+  a:focus-visible, .btn:focus-visible, .contact-card:focus-visible, .menu-btn:focus-visible{outline:2px solid var(--leaf-gold);outline-offset:3px;}
 </style>
 </head>
 <body>
@@ -179,27 +251,52 @@
 <header>
   <div class="inner glass">
     <div class="brand">
-      <span style="font-size:1.3rem;line-height:1;">🍁</span>
+      <span class="mark">🍁</span>
       <span>UMES</span>
     </div>
-    <nav>
+    <nav class="primary-nav">
       <a href="#origin">Origin</a>
-      <a href="#tracks">What we do</a>
+      <a href="#tracks">Services</a>
+      <a href="#process">Process</a>
       <a href="#reach">Reach</a>
       <a href="#connect">Contact</a>
     </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="#connect" style="padding:10px 18px;font-size:0.86rem;">Start a project</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
   </div>
+  <nav id="mobileNav" class="glass">
+    <a href="#origin">Origin</a>
+    <a href="#tracks">Services</a>
+    <a href="#process">Process</a>
+    <a href="#reach">Reach</a>
+    <a href="#connect">Contact</a>
+  </nav>
 </header>
 
 <section class="hero">
   <div class="wrap">
     <div class="hero-panel glass">
-      <span class="kicker">Founded in Kashmir</span>
+      <span class="kicker"><span class="mark">🍁</span> Founded in Kashmir</span>
       <h1>Websites, marketing, and networks — engineered with precision</h1>
       <p class="lead">UMES builds and maintains the digital backbone businesses run on: websites that hold up, marketing that compounds, and network architecture built for scale — delivered in quiet coordination with partners across the United States and the United Kingdom.</p>
-      <div class="chip-row">
-        <a class="chip" href="#connect"><svg viewBox="0 0 24 24" fill="none"><path d="M6 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v3a2 2 0 0 1-2 2C10.5 20 4 13.5 4 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>Get in touch</a>
-        <a class="chip" href="https://docs.google.com/document/d/1CCjt33yVXPbfyl2y9BMoie4mlxPhYm4IWzmHqXeajIw/edit?tab=t.0" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.3"/></svg>Global Outlook</a>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#connect">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v3a2 2 0 0 1-2 2C10.5 20 4 13.5 4 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          Start a project
+        </a>
+        <a class="btn btn-ghost" href="https://docs.google.com/document/d/1CCjt33yVXPbfyl2y9BMoie4mlxPhYm4IWzmHqXeajIw/edit?tab=t.0" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.3"/><path d="M14 3v5h5M9 13h6M9 16h6" stroke="currentColor" stroke-width="1.3"/></svg>
+          Read our Global Outlook
+        </a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M8 20h8" stroke="currentColor" stroke-width="1.3"/></svg>Website Development</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11l18-7-7 18-3-8-8-3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>Digital Marketing</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="5" cy="6" r="2.4" stroke="currentColor" stroke-width="1.3"/><circle cx="19" cy="6" r="2.4" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="18" r="2.4" stroke="currentColor" stroke-width="1.3"/><path d="M7 7.5 10.3 16M17 7.5 13.7 16M7.4 6h9.2" stroke="currentColor" stroke-width="1.2"/></svg>Network Architecture</div>
       </div>
     </div>
   </div>
@@ -209,13 +306,14 @@
   <div class="wrap">
     <div class="origin-panel glass">
       <div>
+        <div class="eyebrow"><span class="dot"></span>Origin</div>
         <h2>Built on engineering as a discipline</h2>
-        <div class="origin-body" style="margin-top:20px;">
+        <div class="origin-body">
           <p>UMES originated in Kashmir as an emerging startup, built on the idea that digital presence — a site, a campaign, a network — holds together only when it's engineered with the same rigor as physical infrastructure.</p>
           <p>That principle now shapes how UMES builds: websites, digital marketing, and high-level network architecture, delivered as one coordinated practice with partners across the United States and the United Kingdom.</p>
         </div>
       </div>
-      <div class="single-leaf" style="font-size:7rem;text-align:center;filter:drop-shadow(0 6px 14px rgba(0,0,0,0.3));">🍁</div>
+      <div class="single-leaf">🍁</div>
     </div>
   </div>
 </section>
@@ -223,24 +321,57 @@
 <section class="tracks" id="tracks">
   <div class="wrap">
     <div class="head">
+      <div class="eyebrow"><span class="dot"></span>Services</div>
       <h2>Three disciplines, one operating rhythm</h2>
       <p>Website development, digital marketing, and network architecture run as a single practice at UMES — the same planning, the same partners, the same standard of follow-through.</p>
     </div>
     <div class="track-grid">
       <div class="track-card glass">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M8 20h8M3 9h18" stroke="currentColor" stroke-width="1.4"/></svg></div>
         <span class="tag">Website Development</span>
         <h3>Built to hold up</h3>
         <p>Sites designed and engineered with the same precision as critical infrastructure — fast, maintainable, and built to scale with the business behind them.</p>
       </div>
       <div class="track-card glass">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11l18-7-7 18-3-8-8-3Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
         <span class="tag">Digital Marketing</span>
         <h3>Growth that compounds</h3>
         <p>Campaigns and channels planned and coordinated rather than run in isolation — built to compound over time, not just fill a calendar.</p>
       </div>
       <div class="track-card glass">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="5" cy="6" r="2.4" stroke="currentColor" stroke-width="1.4"/><circle cx="19" cy="6" r="2.4" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="18" r="2.4" stroke="currentColor" stroke-width="1.4"/><path d="M7 7.5 10.3 16M17 7.5 13.7 16M7.4 6h9.2" stroke="currentColor" stroke-width="1.3"/></svg></div>
         <span class="tag">Network Architecture</span>
         <h3>Engineered for scale</h3>
         <p>High-level network design — from topology to security posture — planned with the same rigor UMES brings to every build.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="process-panel glass">
+      <div class="head">
+        <div class="eyebrow"><span class="dot"></span>How we work</div>
+        <h2>A straightforward way to start</h2>
+        <p>No long onboarding, no forms to chase — a short conversation, a clear scope, and a build that stays on track.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">01</div>
+          <h3>Discover</h3>
+          <p>A conversation about what the site, campaign, or network needs to do — and for whom.</p>
+        </div>
+        <div class="step">
+          <div class="num">02</div>
+          <h3>Build</h3>
+          <p>UMES plans and builds with the same discipline across every engagement, large or small.</p>
+        </div>
+        <div class="step">
+          <div class="num">03</div>
+          <h3>Support</h3>
+          <p>Delivery doesn't end at launch — UMES stays coordinated with you as things evolve.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -250,13 +381,14 @@
   <div class="wrap">
     <div class="reach-panel glass">
       <div class="head">
+        <div class="eyebrow"><span class="dot"></span>Reach</div>
         <h2>A network kept deliberately small</h2>
         <p>UMES delivers in quiet partnership across three points — origin, and two partner geographies — favoring resilience and craft over scale for its own sake.</p>
       </div>
       <svg class="network" viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg">
         <line x1="140" y1="70" x2="450" y2="150" stroke="#C1432A" stroke-width="1.2" opacity="0.7"/>
         <line x1="450" y1="150" x2="760" y2="70" stroke="#C1432A" stroke-width="1.2" opacity="0.7"/>
-        <line x1="140" y1="70" x2="760" y2="70" stroke="#D9BEB0" stroke-width="1" stroke-dasharray="2 6" opacity="0.5"/>
+        <line x1="140" y1="70" x2="760" y2="70" stroke="#E4CFC2" stroke-width="1" stroke-dasharray="2 6" opacity="0.5"/>
         <circle cx="140" cy="70" r="6" fill="#E0912F"/>
         <circle cx="450" cy="150" r="6" fill="#FBEFE4"/>
         <circle cx="760" cy="70" r="6" fill="#FBEFE4"/>
@@ -274,40 +406,31 @@
 <section class="connect" id="connect">
   <div class="wrap">
     <div class="connect-panel glass">
-      <h2>Reach UMES</h2>
-      <div class="link-row">
-        <a style="display:contents;" href="https://docs.google.com/document/d/1CCjt33yVXPbfyl2y9BMoie4mlxPhYm4IWzmHqXeajIw/edit?tab=t.0" target="_blank" rel="noopener">
-          <div class="left"><svg viewBox="0 0 24 24" fill="none"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.3"/><path d="M14 3v5h5M9 13h6M9 16h6" stroke="currentColor" stroke-width="1.3"/></svg>
-          <div><div class="label">Global Outlook</div><div class="detail">PDF document</div></div></div>
-          <span class="go">Open</span>
-        </a>
+      <div class="head">
+        <div class="eyebrow"><span class="dot"></span>Contact</div>
+        <h2>Reach UMES</h2>
+        <p>Five direct lines in — no forms, no queue.</p>
       </div>
-      <div class="link-row">
-        <a style="display:contents;" href="tel:+13136468164">
-          <div class="left"><svg viewBox="0 0 24 24" fill="none"><path d="M6 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v3a2 2 0 0 1-2 2C10.5 20 4 13.5 4 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
-          <div><div class="label">Help</div><div class="detail">+1 (313) 646-8164</div></div></div>
-          <span class="go">Call</span>
+      <div class="contact-grid">
+        <a class="contact-card" href="https://docs.google.com/document/d/1CCjt33yVXPbfyl2y9BMoie4mlxPhYm4IWzmHqXeajIw/edit?tab=t.0" target="_blank" rel="noopener">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.3"/><path d="M14 3v5h5M9 13h6M9 16h6" stroke="currentColor" stroke-width="1.3"/></svg></div>
+          <div><div class="label">Global Outlook</div><div class="detail">PDF document</div></div>
         </a>
-      </div>
-      <div class="link-row">
-        <a style="display:contents;" href="https://umes.info/cdn-cgi/l/email-protection#1871767e77586d757d6b3671767e77">
-          <div class="left"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.3"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.3"/></svg>
-          <div><div class="label">Contact us</div><div class="detail">Email</div></div></div>
-          <span class="go">Email</span>
+        <a class="contact-card" href="tel:+13136468164">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v3a2 2 0 0 1-2 2C10.5 20 4 13.5 4 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
+          <div><div class="label">Help</div><div class="detail">+1 (313) 646-8164</div></div>
         </a>
-      </div>
-      <div class="link-row">
-        <a style="display:contents;" href="https://jannu.us/" target="_blank" rel="noopener">
-          <div class="left"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.3"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z" stroke="currentColor" stroke-width="1.3"/></svg>
-          <div><div class="label">Partner service</div><div class="detail">jannu.us</div></div></div>
-          <span class="go">Visit</span>
+        <a class="contact-card" href="https://umes.info/cdn-cgi/l/email-protection#1871767e77586d757d6b3671767e77">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.3"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.3"/></svg></div>
+          <div><div class="label">Contact us</div><div class="detail">Email</div></div>
         </a>
-      </div>
-      <div class="link-row">
-        <a style="display:contents;" href="https://faisalfjan.carrd.co/" target="_blank" rel="noopener">
-          <div class="left"><svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5" stroke="currentColor" stroke-width="1.3"/><circle cx="17" cy="9" r="2.5" stroke="currentColor" stroke-width="1.3"/><path d="M15.5 20c.2-2.5 2-4.4 4.5-4.9" stroke="currentColor" stroke-width="1.3"/></svg>
-          <div><div class="label">Board members</div><div class="detail">Meet the board</div></div></div>
-          <span class="go">View</span>
+        <a class="contact-card" href="https://jannu.us/" target="_blank" rel="noopener">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.3"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z" stroke="currentColor" stroke-width="1.3"/></svg></div>
+          <div><div class="label">Partner service</div><div class="detail">jannu.us</div></div>
+        </a>
+        <a class="contact-card" href="https://faisalfjan.carrd.co/" target="_blank" rel="noopener" style="grid-column:1/-1;max-width:calc(50% - 7px);">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5" stroke="currentColor" stroke-width="1.3"/><circle cx="17" cy="9" r="2.5" stroke="currentColor" stroke-width="1.3"/><path d="M15.5 20c.2-2.5 2-4.4 4.5-4.9" stroke="currentColor" stroke-width="1.3"/></svg></div>
+          <div><div class="label">Board members</div><div class="detail">Meet the board</div></div>
         </a>
       </div>
     </div>
@@ -315,24 +438,59 @@
 </section>
 
 <footer>
-  <div class="fbrand">
-    <span style="font-size:1rem;">🍁</span>
-    <span>UMES</span>
+  <div class="wrap" style="padding:0;">
+    <div class="footer-panel glass">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand"><span class="mark">🍁</span><span>UMES</span></div>
+          <p>Website development, digital marketing, and network architecture — engineered from Kashmir, delivered with partners across the US and UK.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="#origin">Origin</a>
+          <a href="#tracks">Services</a>
+          <a href="#process">Process</a>
+          <a href="#reach">Reach</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+13136468164">+1 (313) 646-8164</a>
+          <a href="https://umes.info/cdn-cgi/l/email-protection#1871767e77586d757d6b3671767e77">Email</a>
+          <a href="https://jannu.us/" target="_blank" rel="noopener">Partner service</a>
+          <a href="https://faisalfjan.carrd.co/" target="_blank" rel="noopener">Board members</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 UMES. All rights reserved.</span>
+        <span>Kashmir · United States · United Kingdom</span>
+      </div>
+    </div>
   </div>
-  <span>Kashmir · United States · United Kingdom</span>
 </footer>
 
 <script>
+  // mobile nav toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+
+  // falling leaves
   (function(){
     const layer = document.getElementById('leafLayer');
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const count = reduce ? 6 : 22;
-
+    const count = reduce ? 6 : 16;
     for(let i=0;i<count;i++){
       const el = document.createElement('div');
       el.className = 'leaf';
-      const size = 18 + Math.random()*20;
-      const dur = 12 + Math.random()*14;
+      const size = 16 + Math.random()*18;
+      const dur = 14 + Math.random()*14;
       const delay = Math.random()*-20;
       const x = Math.random()*100;
       el.style.setProperty('--size', size+'px');
