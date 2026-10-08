@@ -1,264 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Content & Analytics — UMES</title>
-  <meta name="description" content="Useful content and clear measurement to help you understand customer activity and improve your digital marketing.">
+  <meta name="description"
+    content="Useful content and clear measurement to help you understand customer activity and improve your digital marketing.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
-<header>
-  <div class="wrap inner">
-    <a class="brand" href="../index.html#top"><span class="mark">U<i>.</i></span>UMES</a>
-    <nav class="primary-nav">
-      <a href="../index.html#approach">Approach</a>
-      
-      <!-- Services dropdown container -->
-      <div class="nav-item-has-dropdown">
-        <a class="nav-dropdown-trigger" href="../index.html#services" aria-haspopup="true" aria-expanded="false">
-          Services
-          <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
-        </a>
-        <div class="services-dropdown" role="menu">
-          <!-- 01: Website Development -->
-          <a class="dropdown-item" href="web-development.html" role="menuitem">
-            <div class="dropdown-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M3 9h18"/></svg>
-            </div>
-            <div class="dropdown-text">
-              <h4>Website Design &amp; Development</h4>
-              <p>Custom sites, managed cloud hosting, domain setup &amp; ongoing technical support.</p>
-            </div>
-          </a>
-
-          <!-- 02: Digital Marketing -->
-          <a class="dropdown-item" href="digital-marketing.html" role="menuitem">
-            <div class="dropdown-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l18-7-7 18-3-8-8-3Z"/></svg>
-            </div>
-            <div class="dropdown-text">
-              <h4>Digital Marketing</h4>
-              <p>Search engine optimization, Google Ads, Meta Ads, social growth &amp; page boosting.</p>
-            </div>
-          </a>
-
-          <!-- 03: Content & Analytics -->
-          <a class="dropdown-item" href="content-analytics.html" role="menuitem">
-            <div class="dropdown-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
-            </div>
-            <div class="dropdown-text">
-              <h4>Content &amp; Analytics</h4>
-              <p>Blog writing, GA4 setup, attribution tracking, and conversion optimization.</p>
-            </div>
-          </a>
-
-          <!-- 04: Network Architecture -->
-          <a class="dropdown-item" href="network-architecture.html" role="menuitem">
-            <div class="dropdown-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7 7.5 10.3 16M17 7.5 13.7 16M7.4 6h9.2"/></svg>
-            </div>
-            <div class="dropdown-text">
-              <h4>Network Architecture</h4>
-              <p>Enterprise multi-site topologies, zero-trust security posture, cloud &amp; hybrid routing.</p>
-            </div>
-          </a>
-
-          <div class="dropdown-footer">
-            <span>Synchronized across engineering &amp; media buying</span>
-            <a href="../index.html#services">Explore all services →</a>
-          </div>
-        </div>
-      </div>
-      
-      <a href="../index.html#process">Process</a>
-      <a href="../index.html#why">Why UMES</a>
-      <!-- <a href="../index.html#reach">Reach</a> -->
-    </nav>
-    <div class="nav-actions">
-      <a class="btn btn-dark btn-sm" href="../index.html#connect">Get in touch</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
-        <svg id="menuIconOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        <svg id="menuIconClose" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      </button>
-    </div>
-  </div>
-  <nav id="mobileNav" aria-label="Mobile navigation">
-    <div class="mobile-nav-inner">
-      <a class="mobile-nav-link" href="../index.html#approach"><span>Approach</span><span>→</span></a>
-      
-      <!-- Services Mobile Group -->
-      <div class="mobile-services-accordion">
-        <div class="mobile-services-title">
-          <span>Services</span>
-          <a href="../index.html#services" style="color:var(--ink-3);font-size:0.75rem;text-transform:none;letter-spacing:0;">View all →</a>
-        </div>
-        
-        <a class="mobile-svc-item" href="web-development.html">
-          <div class="mobile-svc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M3 9h18"/></svg>
-          </div>
-          <div class="mobile-svc-text">
-            <span class="mobile-svc-name">Website Design &amp; Development </span>
-            <span class="mobile-svc-desc">Custom web, hosting &amp; maintenance</span>
-          </div>
-        </a>
-
-        <a class="mobile-svc-item" href="digital-marketing.html">
-          <div class="mobile-svc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l18-7-7 18-3-8-8-3Z"/></svg>
-          </div>
-          <div class="mobile-svc-text">
-            <span class="mobile-svc-name">Digital Marketing</span>
-            <span class="mobile-svc-desc">SEO, Ads, Page Boosting &amp; Social</span>
-          </div>
-        </a>
-
-        <a class="mobile-svc-item" href="content-analytics.html">
-          <div class="mobile-svc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
-          </div>
-          <div class="mobile-svc-text">
-            <span class="mobile-svc-name">Content &amp; Analytics</span>
-            <span class="mobile-svc-desc">Editorial blogs, GA4 setup &amp; CRO</span>
-          </div>
-        </a>
-
-        <a class="mobile-svc-item" href="network-architecture.html">
-          <div class="mobile-svc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7 7.5 10.3 16M17 7.5 13.7 16M7.4 6h9.2"/></svg>
-          </div>
-          <div class="mobile-svc-text">
-            <span class="mobile-svc-name">Network Architecture</span>
-            <span class="mobile-svc-desc">Zero-trust, backbone topologies &amp; cloud</span>
-          </div>
-        </a>
-      </div>
-      
-      <a class="mobile-nav-link" href="../index.html#process"><span>Process</span><span>→</span></a>
-      <a class="mobile-nav-link" href="../index.html#why"><span>Why UMES</span><span>→</span></a>
-      <!-- <a class="mobile-nav-link" href="../index.html#reach"><span>Reach</span><span>→</span></a> -->
-      <a class="mobile-nav-cta" href="../index.html#connect">Start a project →</a>
-    </div>
-  </nav>
-</header>
-
-<main>
-<section class="page-hero">
-  <div class="wrap">
-    <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="../index.html#services">Services</a><span>/</span><span>Content & Analytics</span></div>
-    <div class="page-hero-grid">
-      <div>
-        <div class="page-kicker">03 · Content & Measurement</div>
-        <h1>Content & Analytics</h1>
-        <p class="lead">Useful content and clear measurement to help you understand customer activity and improve your digital marketing.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="../index.html#connect">Start a project <span>→</span></a>
-          <a class="btn btn-outline" href="../index.html#services">View all services</a>
-        </div>
-      </div>
-      <aside class="hero-panel reveal">
-        <div class="panel-number">03</div>
-        <h3>Content and analytics that support informed decisions.</h3>
-        <p>Part of the unified UMES system across engineering, growth, analytics, and infrastructure.</p>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap detail-grid">
-    <div class="detail-copy reveal">
-      <div class="eyebrow">What we deliver</div>
-      <h2>Content and analytics that work together.</h2>
-      <p>UMES connects editorial production with analytics implementation. Search-optimized articles, guides, and other content assets are supported by GA4 event tracking, Google Tag Manager, conversion funnels, and data-led optimization.</p>
-      <ul class="feature-list">
-        <li><span class="check">✓</span><span><strong>Blog Writing & Editorial</strong> — Search-optimized articles, white papers, and guides that help customers find and understand your business.</span></li><li><span class="check">✓</span><span><strong>Google Analytics (GA4)</strong> — GA4 event tracking, Google Tag Manager implementation, conversion funnels, and reporting to understand marketing performance.</span></li><li><span class="check">✓</span><span><strong>Conversion Rate Optimization</strong> — Funnel analysis, behaviour tracking, heatmaps, and landing-page improvements to increase enquiries and conversions.</span></li>
-      </ul>
-    </div>
-    <aside class="service-aside reveal">
-      <h3>Explore services</h3>
-      <a href="web-development.html"><span>01</span><span>Website Design & Development</span><span>↗</span></a>
-<a href="digital-marketing.html"><span>02</span><span>Digital Marketing</span><span>↗</span></a>
-<a href="content-analytics.html"><span>03</span><span>Content & Analytics</span><span>↗</span></a>
-<a href="network-architecture.html"><span>04</span><span>Network Architecture</span><span>↗</span></a>
-    </aside>
-  </div>
-</section>
-
-<section class="sec services">
-  <div class="wrap">
-    <div class="eyebrow reveal">Capabilities</div>
-    <h2 class="reveal">What the service includes.</h2>
-    <p class="sub reveal">Clear deliverables and consistent standards for each stage of the work.</p>
-    <div class="capability-grid">
-      <article class="capability reveal"><div class="cap-num">01</div><h3>Blog Writing & Editorial</h3><p>Search-optimized articles, white papers, and guides that help customers find and understand your business.</p></article>
-<article class="capability reveal"><div class="cap-num">02</div><h3>Google Analytics (GA4)</h3><p>GA4 event tracking, Google Tag Manager implementation, custom conversion funnels, and reporting to understand marketing performance.</p></article>
-<article class="capability reveal"><div class="cap-num">03</div><h3>Conversion Rate Optimization</h3><p>Funnel analysis, behavioral tracking, heatmapping, and landing-page optimization designed to maximize inbound traffic conversions.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="eyebrow reveal">How we work</div>
-    <h2 class="reveal">A clear path from planning to delivery.</h2>
-    <p class="sub reveal">The same disciplined workflow used across UMES projects, adapted to the specific requirements of this service.</p>
-    <div class="process-strip">
-      <article class="process-card reveal"><div class="num">01</div><h3>Measure</h3><p>Map the existing analytics, events, funnels, content, and conversion journey.</p></article>
-<article class="process-card reveal"><div class="num">02</div><h3>Diagnose</h3><p>Identify gaps in tracking, content relevance, user behavior, and conversion flow.</p></article>
-<article class="process-card reveal"><div class="num">03</div><h3>Build</h3><p>Produce content and implement the measurement architecture needed to evaluate it.</p></article>
-<article class="process-card reveal"><div class="num">04</div><h3>Improve</h3><p>Use observed behavior and performance data to continuously refine the funnel.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="sec service-cta">
-  <div class="wrap">
-    <div class="eyebrow reveal">Start a conversation</div>
-    <h2 class="reveal">Discuss your content and analytics needs.</h2>
-    <p class="sub reveal">Tell us what you need, and we will help define the right next step.</p>
-    <div class="cta-row reveal">
-      <a class="btn btn-primary" href="../index.html#connect">Get in touch →</a>
-      <a class="btn btn-outline" href="../index.html#services">Explore all services</a>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <div class="footer-top">
-      <div>
-        <a class="brand" href="../index.html#top"><span class="mark">U<i>.</i></span>UMES</a>
-        <p>Website design and development, domain and hosting, search engine optimization, Google &amp; Meta ads, blog writing, and analytics — engineered in Kashmir for clients worldwide.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
+  <header>
+    <div class="wrap inner">
+      <a class="brand" href="../index.html#top"><span class="mark">U<i>.</i></span>UMES</a>
+      <nav class="primary-nav">
         <a href="../index.html#approach">Approach</a>
-        <a href="../index.html#services">All Services</a>
+
+        <!-- Services dropdown container -->
+        <div class="nav-item-has-dropdown">
+          <a class="nav-dropdown-trigger" href="../index.html#services" aria-haspopup="true" aria-expanded="false">
+            Services
+            <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </a>
+          <div class="services-dropdown" role="menu">
+            <!-- 01: Website Development -->
+            <a class="dropdown-item" href="web-development.html" role="menuitem">
+              <div class="dropdown-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3" y="4" width="18" height="14" rx="2" />
+                  <path d="M8 20h8M3 9h18" />
+                </svg>
+              </div>
+              <div class="dropdown-text">
+                <h4>Website Design &amp; Development</h4>
+                <p>Custom sites, managed cloud hosting, domain setup &amp; ongoing technical support.</p>
+              </div>
+            </a>
+
+            <!-- 02: Digital Marketing -->
+            <a class="dropdown-item" href="digital-marketing.html" role="menuitem">
+              <div class="dropdown-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+                  <path d="M3 11l18-7-7 18-3-8-8-3Z" />
+                </svg>
+              </div>
+              <div class="dropdown-text">
+                <h4>Digital Marketing</h4>
+                <p>Search engine optimization, Google Ads, Meta Ads, social growth &amp; page boosting.</p>
+              </div>
+            </a>
+
+            <!-- 03: Content & Analytics -->
+            <a class="dropdown-item" href="content-analytics.html" role="menuitem">
+              <div class="dropdown-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+                  <path d="M8 7h8M8 11h8M8 15h5" />
+                </svg>
+              </div>
+              <div class="dropdown-text">
+                <h4>Content &amp; Analytics</h4>
+                <p>Blog writing, GA4 setup, attribution tracking, and conversion optimization.</p>
+              </div>
+            </a>
+
+            <!-- 04: Network Architecture -->
+            <a class="dropdown-item" href="network-architecture.html" role="menuitem">
+              <div class="dropdown-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="5" cy="6" r="2.4" />
+                  <circle cx="19" cy="6" r="2.4" />
+                  <circle cx="12" cy="18" r="2.4" />
+                  <path d="M7 7.5 10.3 16M17 7.5 13.7 16M7.4 6h9.2" />
+                </svg>
+              </div>
+              <div class="dropdown-text">
+                <h4>Network Architecture</h4>
+                <p>Enterprise multi-site topologies, zero-trust security posture, cloud &amp; hybrid routing.</p>
+              </div>
+            </a>
+
+            <div class="dropdown-footer">
+              <span>Synchronized across engineering &amp; media buying</span>
+              <a href="../index.html#services">Explore all services →</a>
+            </div>
+          </div>
+        </div>
+
         <a href="../index.html#process">Process</a>
         <a href="../index.html#why">Why UMES</a>
         <!-- <a href="../index.html#reach">Reach</a> -->
-      </div>
-      <div class="footer-col">
-        <h4>Contact &amp; Connect</h4>
-        <a href="tel:+13136468164">+1 (313) 646-8164</a>
-        <a href="https://umes.info/cdn-cgi/l/email-protection#1871767e77586d757d6b3671767e77">Email</a>
-        <a href="https://jannu.us/" target="_blank" rel="noopener">Partner service</a>
-        <a href="https://faisalfjan.carrd.co/" target="_blank" rel="noopener">Board members</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-dark btn-sm" href="../index.html#connect">Get in touch</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+          <svg id="menuIconOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+          <svg id="menuIconClose" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© <span data-year>2026</span> UMES. All rights reserved.</span>
-      <span>Kashmir · Worldwide</span>
+    <nav id="mobileNav" aria-label="Mobile navigation">
+      <div class="mobile-nav-inner">
+        <a class="mobile-nav-link" href="../index.html#approach"><span>Approach</span><span>→</span></a>
+
+        <!-- Services Mobile Group -->
+        <div class="mobile-services-accordion">
+          <div class="mobile-services-title">
+            <span>Services</span>
+            <a href="../index.html#services"
+              style="color:var(--ink-3);font-size:0.75rem;text-transform:none;letter-spacing:0;">View all →</a>
+          </div>
+
+          <a class="mobile-svc-item" href="web-development.html">
+            <div class="mobile-svc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="4" width="18" height="14" rx="2" />
+                <path d="M8 20h8M3 9h18" />
+              </svg>
+            </div>
+            <div class="mobile-svc-text">
+              <span class="mobile-svc-name">Website Design &amp; Development </span>
+              <span class="mobile-svc-desc">Custom web, hosting &amp; maintenance</span>
+            </div>
+          </a>
+
+          <a class="mobile-svc-item" href="digital-marketing.html">
+            <div class="mobile-svc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M3 11l18-7-7 18-3-8-8-3Z" />
+              </svg>
+            </div>
+            <div class="mobile-svc-text">
+              <span class="mobile-svc-name">Digital Marketing</span>
+              <span class="mobile-svc-desc">SEO, Ads, Page Boosting &amp; Social</span>
+            </div>
+          </a>
+
+          <a class="mobile-svc-item" href="content-analytics.html">
+            <div class="mobile-svc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+                <path d="M8 7h8M8 11h8M8 15h5" />
+              </svg>
+            </div>
+            <div class="mobile-svc-text">
+              <span class="mobile-svc-name">Content &amp; Analytics</span>
+              <span class="mobile-svc-desc">Editorial blogs, GA4 setup &amp; CRO</span>
+            </div>
+          </a>
+
+          <a class="mobile-svc-item" href="network-architecture.html">
+            <div class="mobile-svc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="5" cy="6" r="2.4" />
+                <circle cx="19" cy="6" r="2.4" />
+                <circle cx="12" cy="18" r="2.4" />
+                <path d="M7 7.5 10.3 16M17 7.5 13.7 16M7.4 6h9.2" />
+              </svg>
+            </div>
+            <div class="mobile-svc-text">
+              <span class="mobile-svc-name">Network Architecture</span>
+              <span class="mobile-svc-desc">Zero-trust, backbone topologies &amp; cloud</span>
+            </div>
+          </a>
+        </div>
+
+        <a class="mobile-nav-link" href="../index.html#process"><span>Process</span><span>→</span></a>
+        <a class="mobile-nav-link" href="../index.html#why"><span>Why UMES</span><span>→</span></a>
+        <!-- <a class="mobile-nav-link" href="../index.html#reach"><span>Reach</span><span>→</span></a> -->
+        <a class="mobile-nav-cta" href="../index.html#connect">Start a project →</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><a
+            href="../index.html#services">Services</a><span>/</span><span>Content & Analytics</span></div>
+        <div class="page-hero-grid">
+          <div>
+            <div class="page-kicker">03 · Content & Measurement</div>
+            <h1>Content & Analytics</h1>
+            <p class="lead">Useful content and clear measurement to help you understand customer activity and improve
+              your digital marketing.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="../index.html#connect">Start a project <span>→</span></a>
+              <a class="btn btn-outline" href="../index.html#services">View all services</a>
+            </div>
+          </div>
+          <aside class="hero-panel reveal">
+            <div class="panel-number">03</div>
+            <h3>Content and analytics that support informed decisions.</h3>
+            <p>Part of the unified UMES system across engineering, growth, analytics, and infrastructure.</p>
+          </aside>
+        </div>
+      </div>
+    </section>  
+
+    <section class="sec" id="capabilities">
+      <div class="wrap">
+        <div class="eyebrow reveal">What we do</div>
+        <h2 class="reveal">Content and measurement for better decisions.</h2>
+        <p class="sub reveal">Create useful content, understand customer behaviour, and improve what works.</p>
+        <div class="capability-grid">
+          <article class="capability reveal">
+            <div class="cap-num">01</div>
+            <h3>Blog Writing & Editorial</h3>
+            <p>Search-optimized articles, white papers, and guides that help customers find and understand your
+              business.</p>
+          </article>
+          <article class="capability reveal">
+            <div class="cap-num">02</div>
+            <h3>Google Analytics (GA4)</h3>
+            <p>GA4 event tracking, Google Tag Manager implementation, custom conversion funnels, and reporting to
+              understand marketing performance.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec services">
+      <div class="wrap">
+        <div class="eyebrow reveal">The content challenge</div>
+        <h2 class="reveal">Content and data need to work together.</h2>
+        <p class="sub reveal">Publishing content without measurement makes it difficult to understand what helps
+          customers and supports business goals.</p>
+        <div class="capability-grid">
+          <article class="capability reveal">
+            <div class="cap-num">01</div>
+            <h3>Content without direction</h3>
+            <p>Content needs a clear audience, purpose, and distribution plan.</p>
+          </article>
+          <article class="capability reveal">
+            <div class="cap-num">02</div>
+            <h3>Incomplete tracking</h3>
+            <p>Important actions need to be measured so performance can be understood.</p>
+          </article>
+          <article class="capability reveal">
+            <div class="cap-num">03</div>
+            <h3>Data without context</h3>
+            <p>Reports are most useful when they help answer practical business questions.</p>
+          </article>
+          <article class="capability reveal">
+            <div class="cap-num">04</div>
+            <h3>Missed improvements</h3>
+            <p>Performance data should lead to useful changes in content and user experience.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap detail-grid">
+        <div class="detail-copy reveal">
+          <div class="eyebrow">The UMES solution</div>
+          <h2>Content and analytics that work together.</h2>
+          <p>UMES connects editorial production with analytics implementation. Search-optimized articles, guides, and
+            other content assets are supported by GA4 event tracking, Google Tag Manager, conversion funnels, and
+            data-led optimization.</p>
+          <p>By considering content and measurement together, we can identify what audiences need and make practical
+            improvements based on real performance data.</p>
+        </div>
+        <aside class="service-aside reveal">
+          <h3>The insight loop</h3>
+          <a><span>01</span><span>Plan</span><span>↗</span></a>
+          <a><span>02</span><span>Create</span><span>↗</span></a>
+          <a><span>03</span><span>Measure</span><span>↗</span></a>
+          <a><span>04</span><span>Improve</span><span>↗</span></a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="sec services">
+      <div class="wrap">
+        <div class="eyebrow reveal">How we work</div>
+        <h2 class="reveal">A clear path from planning to delivery.</h2>
+        <p class="sub reveal">The same disciplined workflow used across UMES projects, adapted to the specific
+          requirements of this service.</p>
+        <div class="process-strip">
+          <article class="process-card reveal">
+            <div class="num">01</div>
+            <h3>Measure</h3>
+            <p>Map the existing analytics, events, funnels, content, and conversion journey.</p>
+          </article>
+          <article class="process-card reveal">
+            <div class="num">02</div>
+            <h3>Diagnose</h3>
+            <p>Identify gaps in tracking, content relevance, user behavior, and conversion flow.</p>
+          </article>
+          <article class="process-card reveal">
+            <div class="num">03</div>
+            <h3>Build</h3>
+            <p>Produce content and implement the measurement architecture needed to evaluate it.</p>
+          </article>
+          <article class="process-card reveal">
+            <div class="num">04</div>
+            <h3>Improve</h3>
+            <p>Use observed behavior and performance data to continuously refine the funnel.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="outcomes">
+      <div class="wrap">
+        <div class="eyebrow reveal">What success looks like</div>
+        <h2 class="reveal">Clearer content and clearer measurement.</h2>
+        <p class="sub reveal">The goal is to understand customer activity and use that knowledge to improve performance.
+        </p>
+        <div class="capability-grid">
+          <article class="capability reveal">
+            <div class="cap-num">01</div>
+            <h3>Useful content</h3>
+            <p>Give customers information that answers their questions and supports decisions.</p>
+          </article>
+          <article class="capability reveal">
+            <div class="cap-num">02</div>
+            <h3>Better visibility</h3>
+            <p>Help the right audiences find content through search and other channels.</p>
+          </article>
+          <article class="capability reveal">
+            <div class="cap-num">03</div>
+            <h3>Reliable reporting</h3>
+            <p>Understand customer actions and marketing performance with clear reporting.</p>
+          </article>
+          <article class="capability reveal">
+            <div class="cap-num">04</div>
+            <h3>Ongoing improvement</h3>
+            <p>Use real evidence to refine content, journeys, and conversion paths.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec services">
+      <div class="wrap detail-grid">
+        <div class="detail-copy reveal">
+          <div class="eyebrow">Why UMES</div>
+          <h2>Content and analytics in one service.</h2>
+          <p>Writers, analysts, and marketing specialists work from the same plan, so content decisions are supported by
+            real performance data.</p>
+          <p>This makes it easier to create useful content and understand its contribution to your wider digital
+            marketing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec service-cta">
+      <div class="wrap">
+        <div class="eyebrow reveal">Start a conversation</div>
+        <h2 class="reveal">Discuss your content and analytics needs.</h2>
+        <p class="sub reveal">Tell us what you need, and we will help define the right next step.</p>
+        <div class="cta-row reveal">
+          <a class="btn btn-primary" href="../index.html#connect">Get in touch →</a>
+          <a class="btn btn-outline" href="../index.html#services">Explore all services</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a class="brand" href="../index.html#top"><span class="mark">U<i>.</i></span>UMES</a>
+          <p>Website design and development, domain and hosting, search engine optimization, Google &amp; Meta ads, blog
+            writing, and analytics — engineered in Kashmir for clients worldwide.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="../index.html#approach">Approach</a>
+          <a href="../index.html#services">All Services</a>
+          <a href="../index.html#process">Process</a>
+          <a href="../index.html#why">Why UMES</a>
+          <!-- <a href="../index.html#reach">Reach</a> -->
+        </div>
+        <div class="footer-col">
+          <h4>Contact &amp; Connect</h4>
+          <a href="tel:+13136468164">+1 (313) 646-8164</a>
+          <a href="https://umes.info/cdn-cgi/l/email-protection#1871767e77586d757d6b3671767e77">Email</a>
+          <a href="https://jannu.us/" target="_blank" rel="noopener">Partner service</a>
+          <a href="https://faisalfjan.carrd.co/" target="_blank" rel="noopener">Board members</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> UMES. All rights reserved.</span>
+        <span>Kashmir · Worldwide</span>
+      </div>
     </div>
-  </div>
-</footer>
-<script src="../script.js"></script>
+  </footer>
+  <script src="../script.js"></script>
 </body>
+
 </html>
