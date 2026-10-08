@@ -17,19 +17,64 @@
     <nav class="primary-nav">
       <a href="../index.html#approach">Approach</a>
       
-        <div class="nav-item-has-dropdown">
-          <a class="nav-dropdown-trigger" href="../index.html#services" aria-haspopup="true" aria-expanded="false">
-            Services
-            <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+      <!-- Services dropdown container -->
+      <div class="nav-item-has-dropdown">
+        <a class="nav-dropdown-trigger" href="../index.html#services" aria-haspopup="true" aria-expanded="false">
+          Services
+          <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
+        <div class="services-dropdown" role="menu">
+          <!-- 01: Website Development -->
+          <a class="dropdown-item" href="web-development.html" role="menuitem">
+            <div class="dropdown-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M3 9h18"/></svg>
+            </div>
+            <div class="dropdown-text">
+              <h4>Website Design &amp; Development</h4>
+              <p>Custom sites, managed cloud hosting, domain setup &amp; ongoing technical support.</p>
+            </div>
           </a>
-          <div class="services-dropdown" role="menu">
-            <a class="dropdown-item" href="web-development.html"><div class="dropdown-icon">01</div><div class="dropdown-text"><h4>Website Design &amp; Dev</h4><p>Custom sites, hosting, domains &amp; support.</p></div></a>
-            <a class="dropdown-item" href="digital-marketing.html"><div class="dropdown-icon">02</div><div class="dropdown-text"><h4>Digital Marketing</h4><p>SEO, Google Ads, Meta Ads &amp; social growth.</p></div></a>
-            <a class="dropdown-item" href="content-analytics.html"><div class="dropdown-icon">03</div><div class="dropdown-text"><h4>Content &amp; Analytics</h4><p>Editorial content, GA4 &amp; CRO.</p></div></a>
-            <a class="dropdown-item" href="network-architecture.html"><div class="dropdown-icon">04</div><div class="dropdown-text"><h4>Network Architecture</h4><p>Topology, security, cloud &amp; hybrid infrastructure.</p></div></a>
-            <div class="dropdown-footer"><span>One coordinated digital system</span><a href="../index.html#services">Explore all services →</a></div>
+
+          <!-- 02: Digital Marketing -->
+          <a class="dropdown-item" href="digital-marketing.html" role="menuitem">
+            <div class="dropdown-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l18-7-7 18-3-8-8-3Z"/></svg>
+            </div>
+            <div class="dropdown-text">
+              <h4>Digital Marketing</h4>
+              <p>Search engine optimization, Google Ads, Meta Ads, social growth &amp; page boosting.</p>
+            </div>
+          </a>
+
+          <!-- 03: Content & Analytics -->
+          <a class="dropdown-item" href="content-analytics.html" role="menuitem">
+            <div class="dropdown-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
+            </div>
+            <div class="dropdown-text">
+              <h4>Content &amp; Analytics</h4>
+              <p>Blog writing, GA4 setup, attribution tracking, and conversion optimization.</p>
+            </div>
+          </a>
+
+          <!-- 04: Network Architecture -->
+          <a class="dropdown-item" href="network-architecture.html" role="menuitem">
+            <div class="dropdown-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7 7.5 10.3 16M17 7.5 13.7 16M7.4 6h9.2"/></svg>
+            </div>
+            <div class="dropdown-text">
+              <h4>Network Architecture</h4>
+              <p>Enterprise multi-site topologies, zero-trust security posture, cloud &amp; hybrid routing.</p>
+            </div>
+          </a>
+
+          <div class="dropdown-footer">
+            <span>Synchronized across engineering &amp; media buying</span>
+            <a href="../index.html#services">Explore all services →</a>
           </div>
         </div>
+      </div>
+
       <a href="../index.html#process">Process</a>
       <a href="../index.html#why">Why UMES</a>
       <!-- <a href="../index.html#reach">Reach</a> -->
@@ -45,13 +90,55 @@
   <nav id="mobileNav" aria-label="Mobile navigation">
     <div class="mobile-nav-inner">
       <a class="mobile-nav-link" href="../index.html#approach"><span>Approach</span><span>→</span></a>
+      
+      <!-- Services Mobile Group -->
       <div class="mobile-services-accordion">
-        <div class="mobile-services-title"><span>Services</span><a href="../index.html#services">View all →</a></div>
-        <a class="mobile-svc-item" href="web-development.html"><div class="mobile-svc-icon">01</div><div class="mobile-svc-text"><span class="mobile-svc-name">Website Design &amp; Dev</span><span class="mobile-svc-desc">Custom web, hosting &amp; maintenance</span></div></a>
-        <a class="mobile-svc-item" href="digital-marketing.html"><div class="mobile-svc-icon">02</div><div class="mobile-svc-text"><span class="mobile-svc-name">Digital Marketing</span><span class="mobile-svc-desc">SEO, Ads &amp; social growth</span></div></a>
-        <a class="mobile-svc-item" href="content-analytics.html"><div class="mobile-svc-icon">03</div><div class="mobile-svc-text"><span class="mobile-svc-name">Content &amp; Analytics</span><span class="mobile-svc-desc">Editorial, GA4 &amp; CRO</span></div></a>
-        <a class="mobile-svc-item" href="network-architecture.html"><div class="mobile-svc-icon">04</div><div class="mobile-svc-text"><span class="mobile-svc-name">Network Architecture</span><span class="mobile-svc-desc">Security, cloud &amp; hybrid systems</span></div></a>
+        <div class="mobile-services-title">
+          <span>Services</span>
+          <a href="../index.html#services" style="color:var(--ink-3);font-size:0.75rem;text-transform:none;letter-spacing:0;">View all →</a>
+        </div>
+        
+        <a class="mobile-svc-item" href="web-development.html">
+          <div class="mobile-svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M3 9h18"/></svg>
+          </div>
+          <div class="mobile-svc-text">
+            <span class="mobile-svc-name">Website Design &amp; Development </span>
+            <span class="mobile-svc-desc">Custom web, hosting &amp; maintenance</span>
+          </div>
+        </a>
+
+        <a class="mobile-svc-item" href="digital-marketing.html">
+          <div class="mobile-svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l18-7-7 18-3-8-8-3Z"/></svg>
+          </div>
+          <div class="mobile-svc-text">
+            <span class="mobile-svc-name">Digital Marketing</span>
+            <span class="mobile-svc-desc">SEO, Ads, Page Boosting &amp; Social</span>
+          </div>
+        </a>
+
+        <a class="mobile-svc-item" href="content-analytics.html">
+          <div class="mobile-svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
+          </div>
+          <div class="mobile-svc-text">
+            <span class="mobile-svc-name">Content &amp; Analytics</span>
+            <span class="mobile-svc-desc">Editorial blogs, GA4 setup &amp; CRO</span>
+          </div>
+        </a>
+
+        <a class="mobile-svc-item" href="network-architecture.html">
+          <div class="mobile-svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7 7.5 10.3 16M17 7.5 13.7 16M7.4 6h9.2"/></svg>
+          </div>
+          <div class="mobile-svc-text">
+            <span class="mobile-svc-name">Network Architecture</span>
+            <span class="mobile-svc-desc">Zero-trust, backbone topologies &amp; cloud</span>
+          </div>
+        </a>
       </div>
+
       <a class="mobile-nav-link" href="../index.html#process"><span>Process</span><span>→</span></a>
       <a class="mobile-nav-link" href="../index.html#why"><span>Why UMES</span><span>→</span></a>
       <!-- <a class="mobile-nav-link" href="../index.html#reach"><span>Reach</span><span>→</span></a> -->
@@ -68,7 +155,7 @@
       <div>
         <div class="page-kicker">01 · Engineering & Infrastructure</div>
         <h1>Website Design & Development</h1>
-        <p class="lead">Resilient, high-speed digital products built around clean UX, reliable infrastructure, and long-term maintainability.</p>
+        <p class="lead">Professional websites and web applications designed for clear user experiences, reliable infrastructure, and long-term maintenance.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="../index.html#connect">Start a project <span>→</span></a>
           <a class="btn btn-outline" href="../index.html#services">View all services</a>
@@ -76,7 +163,7 @@
       </div>
       <aside class="hero-panel reveal">
         <div class="panel-number">01</div>
-        <h3>Web foundations that are ready for growth.</h3>
+        <h3>Web foundations designed for reliable growth.</h3>
         <p>Part of the unified UMES system across engineering, growth, analytics, and infrastructure.</p>
       </aside>
     </div>
@@ -87,8 +174,8 @@
   <div class="wrap detail-grid">
     <div class="detail-copy reveal">
       <div class="eyebrow">What we deliver</div>
-      <h2>Built as a system, not a standalone task.</h2>
-      <p>UMES designs and engineers websites, landing pages, corporate portals, and web applications as complete digital systems—not isolated pages. From domain and DNS setup through deployment and ongoing support, every layer is considered together.</p>
+      <h2>A complete website service.</h2>
+      <p>UMES designs and builds websites, landing pages, corporate portals, and web applications as connected digital systems. We consider each stage, from domain and DNS setup to deployment and ongoing support.</p>
       <ul class="feature-list">
         <li><span class="check">✓</span><span><strong>Website Development</strong> — Custom responsive websites, landing pages, corporate portals, and web applications built with modern frameworks for speed, clean UX, and high conversion.</span></li><li><span class="check">✓</span><span><strong>Domain & Hosting</strong> — End-to-end domain acquisition, DNS configuration, SSL certification, CDN integration, and reliable managed cloud hosting tuned for dependable availability.</span></li><li><span class="check">✓</span><span><strong>Technical Support</strong> — Post-launch bug fixing, security patching, speed optimization, CMS updates, automated backups, and rapid incident response.</span></li>
       </ul>
@@ -106,8 +193,8 @@
 <section class="sec services">
   <div class="wrap">
     <div class="eyebrow reveal">Capabilities</div>
-    <h2 class="reveal">The pieces that make the service work.</h2>
-    <p class="sub reveal">Clear deliverables, consistent standards, and an approach designed to fit into the broader digital system.</p>
+    <h2 class="reveal">What the service includes.</h2>
+    <p class="sub reveal">Clear deliverables and consistent standards for each stage of the work.</p>
     <div class="capability-grid">
       <article class="capability reveal"><div class="cap-num">01</div><h3>Website Development</h3><p>Custom responsive websites, landing pages, corporate portals, and web applications built with modern frameworks for speed, clean UX, and high conversion.</p></article>
 <article class="capability reveal"><div class="cap-num">02</div><h3>Domain & Hosting</h3><p>End-to-end domain acquisition, DNS configuration, SSL certification, CDN integration, and reliable managed cloud hosting tuned for dependable availability.</p></article>
@@ -119,7 +206,7 @@
 <section class="sec">
   <div class="wrap">
     <div class="eyebrow reveal">How we work</div>
-    <h2 class="reveal">A clear path from requirement to execution.</h2>
+    <h2 class="reveal">A clear path from planning to delivery.</h2>
     <p class="sub reveal">The same disciplined workflow used across UMES projects, adapted to the specific requirements of this service.</p>
     <div class="process-strip">
       <article class="process-card reveal"><div class="num">01</div><h3>Discover</h3><p>Audit the current site, domain, infrastructure, goals, and constraints.</p></article>
@@ -133,8 +220,8 @@
 <section class="sec service-cta">
   <div class="wrap">
     <div class="eyebrow reveal">Start a conversation</div>
-    <h2 class="reveal">Let's build something that holds up.</h2>
-    <p class="sub reveal">Tell us what you are trying to achieve and we can scope the right next step.</p>
+    <h2 class="reveal">Discuss your website project.</h2>
+    <p class="sub reveal">Tell us what you need, and we will help define the right next step.</p>
     <div class="cta-row reveal">
       <a class="btn btn-primary" href="../index.html#connect">Get in touch →</a>
       <a class="btn btn-outline" href="../index.html#services">Explore all services</a>
