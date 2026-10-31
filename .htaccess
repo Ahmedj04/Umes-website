@@ -1,0 +1,17 @@
+# Apache hosting: install this file in the site's document root.
+# Requires mod_rewrite and AllowOverride FileInfo Indexes.
+DirectoryIndex index.html
+
+RewriteEngine On
+
+# Redirect only explicit requests for index.html, not DirectoryIndex lookups.
+# Combine homepage, hostname, and HTTPS normalization in a single redirect.
+RewriteCond %{THE_REQUEST} \s/+index\.html(?:[?\s]) [NC]
+RewriteRule ^index\.html$ https://umes.in/ [R=301,L,NC]
+
+# Use HTTPS and the non-www hostname, preserving the path and query string.
+# If TLS terminates at a proxy, configure HTTPS detection at the trusted proxy
+# or virtual host before enabling these rules to avoid redirect loops.
+RewriteCond %{HTTP_HOST} !^umes\.in$ [NC,OR]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://umes.in%{REQUEST_URI} [R=301,L,NE]
