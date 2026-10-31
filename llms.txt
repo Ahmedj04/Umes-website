@@ -1,0 +1,22 @@
+# UMES
+
+> UMES provides website design and development, digital marketing, content and analytics, and network architecture from Kashmir for clients worldwide.
+
+The official website is https://umes.in/. UMES works with clients to define project scope, design and deliver services, and provide ongoing support and improvement.
+
+For project inquiries, email contact@umes.in or call +1 (313) 646-8164.
+
+## Overview
+
+- [Homepage](https://umes.in/): Overview of UMES, its services, delivery process, and contact information.
+
+## Services
+
+- [Website Design & Development](https://umes.in/services/web-development.html): Website development, domain and hosting setup, maintenance, and technical support.
+- [Digital Marketing](https://umes.in/services/digital-marketing.html): Search engine optimization, Google and Meta ads, social media, analytics, and conversion optimization.
+- [Content & Analytics](https://umes.in/services/content-analytics.html): Blog writing, editorial content, Google Analytics (GA4) setup, and measurement to guide improvements.
+- [Network Architecture](https://umes.in/services/network-architecture.html): Network topology and backbone design, zero-trust security, cloud and hybrid infrastructure, and network audits and optimization.
+
+## Optional
+
+- [Sitemap](https://umes.in/sitemap.xml): XML index of the site's pages.
