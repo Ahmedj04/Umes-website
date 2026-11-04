@@ -10,6 +10,8 @@ For project inquiries, email contact@umes.in or call +1 (313) 646-8164.
 
 - [Homepage](https://umes.in/): Overview of UMES, its services, delivery process, and contact information.
 
+- [About us](https://umes.in/about.html): Founded in 2025 in Kashmir; our company, current digital services, mission, and approach to client partnerships.
+
 ## Services
 
 - [Website Design & Development](https://umes.in/services/web-development.html): Website development, domain and hosting setup, maintenance, and technical support.

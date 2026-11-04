@@ -100,3 +100,77 @@ document.querySelectorAll('[data-year]').forEach(el => {
   el.textContent = new Date().getFullYear();
 });
 
+// Keep page and section indicators in sync in both header menus.
+(function () {
+  const links = [...document.querySelectorAll('.primary-nav a, #mobileNav a, .nav-actions a')];
+  const normalizePath = path => path.replace(/\/index\.html$/, '/');
+  const currentPath = normalizePath(window.location.pathname);
+  const destinations = links.map(link => ({
+    link,
+    url: new URL(link.getAttribute('href'), window.location.href)
+  }));
+  const isCurrentPath = url => url.origin === window.location.origin &&
+    normalizePath(url.pathname) === currentPath;
+  const pageLinks = new Set(destinations
+    .filter(({ url }) => isCurrentPath(url) && !url.hash)
+    .map(({ link }) => link));
+
+  // The Services parent stays active while viewing any of its detail pages.
+  document.querySelectorAll('.nav-item-has-dropdown').forEach(item => {
+    if ([...item.querySelectorAll('.dropdown-item')].some(link => pageLinks.has(link))) {
+      const trigger = item.querySelector('.nav-dropdown-trigger');
+      if (trigger) pageLinks.add(trigger);
+    }
+  });
+
+  const sectionLinks = destinations.filter(({ url }) => isCurrentPath(url) && url.hash);
+  const sections = [...new Set(sectionLinks
+    .map(({ url }) => document.getElementById(decodeURIComponent(url.hash.slice(1))))
+    .filter(Boolean))];
+
+  function updateNavigation() {
+    // Opening the drawer shifts the content; retain the section it opened from.
+    if (mobileNav && mobileNav.classList.contains('open')) return;
+    // Mark the section just below the sticky header row.
+    const headerRow = document.querySelector('header .inner');
+    const marker = (headerRow ? headerRow.getBoundingClientRect().bottom : 0) + 24;
+    const activeSection = sections.find(section => {
+      const bounds = section.getBoundingClientRect();
+      return bounds.top <= marker && bounds.bottom > marker;
+    });
+
+    destinations.forEach(({ link, url }) => {
+      let current = pageLinks.has(link) ? 'page' : null;
+      if (activeSection && isCurrentPath(url) && url.hash === '#' + activeSection.id) {
+        current = 'location';
+      }
+      if (link.getAttribute('aria-current') !== current) {
+        if (current) link.setAttribute('aria-current', current);
+        else link.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  let scheduled = false;
+  function scheduleUpdate() {
+    if (scheduled) return;
+    scheduled = true;
+    window.requestAnimationFrame(() => {
+      scheduled = false;
+      updateNavigation();
+    });
+  }
+
+  updateNavigation();
+  if (!sections.length) return;
+  window.addEventListener('scroll', scheduleUpdate, { passive: true });
+  window.addEventListener('resize', scheduleUpdate);
+  window.addEventListener('hashchange', scheduleUpdate);
+  window.addEventListener('pageshow', scheduleUpdate);
+  if (mobileNav) {
+    mobileNav.addEventListener('transitionend', event => {
+      if (event.target === mobileNav && event.propertyName === 'max-height') scheduleUpdate();
+    });
+  }
+})();
+

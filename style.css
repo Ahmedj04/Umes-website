@@ -1714,6 +1714,89 @@ img {
   color: var(--accent);
 }
 
+/* Current page and section indicators belong to the header navigation. */
+nav.primary-nav a:is([aria-current="page"], [aria-current="location"]),
+.primary-nav .nav-dropdown-trigger:is([aria-current="page"], [aria-current="location"]),
+#mobileNav a:is([aria-current="page"], [aria-current="location"]),
+.dropdown-item[aria-current="page"] .dropdown-text h4,
+.mobile-svc-item[aria-current="page"] .mobile-svc-name {
+  color: var(--accent);
+}
+
+.dropdown-item[aria-current="page"],
+.mobile-svc-item[aria-current="page"] {
+  background: var(--accent-light);
+}
+
+.nav-actions .btn[aria-current="location"] {
+  background: var(--accent);
+}
+
+/* About UMES */
+.about-page .page-hero h1 {
+  font-size: clamp(2.8rem, 5.2vw, 4.6rem);
+  max-width: 16ch;
+  line-height: 1.02;
+}
+
+.about-origin .page-kicker {
+  margin-bottom: 18px;
+}
+
+.about-origin h2 {
+  margin-top: 28px;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.15;
+}
+
+.about-mission {
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--bg-soft);
+}
+
+.about-mission h3 {
+  margin-top: 20px;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.about-mission p {
+  margin-top: 20px;
+  color: var(--ink-2);
+}
+
+.about-expertise {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.about-expertise .capability {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about-expertise .capability p {
+  margin-bottom: 24px;
+}
+
+.about-card-link {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+.about-card-link span {
+  color: var(--accent);
+}
+
 @media(max-width:900px) {
 
   .page-hero-grid,
