@@ -338,7 +338,7 @@ nav.primary-nav>a:hover,
   border-top: 1px solid var(--line);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: right;
   font-size: 0.82rem;
   color: var(--ink-2);
   padding-left: 6px;
